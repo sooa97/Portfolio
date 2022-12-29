@@ -1,0 +1,575 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Fahkwang:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&display=swap');
+@font-face {
+    font-family: 'zephyr';
+    src:url(../font/zephyr-webfont.woff) format('woff'),
+        url(../font/zephyr-webfont.ttf) format('truetype'),
+        url(../font/zephyr-webfont.svg) format('svg');
+    font-weight: normal;
+    font-style: normal;
+};
+@font-face {
+    font-family: 'culture';
+    src:url(../font/culture-webfont.woff) format('woff'),
+        url(../font/culture-webfont.ttf) format('truetype'),
+        url(../font/culture-webfont.svg) format('svg');
+    font-weight: normal;
+    font-style: normal;
+};
+
+/* reset */
+* {margin: 0;padding: 0;}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, tbody, tfoot, thead, tr, th, td{margin:0;padding:0;}
+h1, h2, h3, h4, h5, h6 {font-weight: 700; font-size: inherit;}
+a {color: inherit; text-decoration: inherit;}
+img {vertical-align: middle;}
+a img {border: none;}
+li {list-style: none;}
+address, em, i {font-style: normal;}
+a:focus {outline: none}
+button:focus {outline: none}
+
+
+/* layout */
+body {font-family: 'Fahkwang', sans-serif;}
+.wrap {width: 100%; overflow: hidden; margin: 0 auto; background: #000;}
+.has-scroll-smooth [data-scroll-container] {overflow-x: hidden;}/* 넘쳐나는 현상 해결 */
+[data-scroll-container] {perspective: 1px;}/* 깜빡이는 현상 해결 */
+.has-scroll-smooth {position: fixed; bottom: 0; left: 0; right: 0; top: 0;}
+
+
+/* header */
+header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff; mix-blend-mode: difference;}
+.innerHeader {width: 100%; height: 100%; padding: 40px 34px 0; box-sizing: border-box; overflow: hidden;}
+.innerHeader .name {float: left; font-size: 40px; font-family: 'culture'; line-height: 0.9;}
+.innerHeader nav {float: right; font-size: 16px;}
+.innerHeader nav .menu span:nth-of-type(2) {display: none;}
+.innerHeader nav .menu {width: 90px; height: 40px; border: 1px solid #fff; border-radius: 50px; cursor: pointer; line-height: 40px; text-align: center; position: relative; transition: transform 0.5s; overflow: hidden;}
+.innerHeader nav .menu:before {content: attr(data-after); display: inline-block; transform: translateY(100%); position: absolute; left: 20px; top: 0; transition: inherit;}
+.innerHeader nav .menu .hide {display: inline-block; transform: translateY(0%); transition: inherit;}
+.innerHeader nav .menu:hover:before {transform: translateY(0%);}
+.innerHeader nav .menu:hover .hide {transform: translateY(-100%);}
+
+/* menuOpen */
+.menuOpen {width: 100%; height: 100vh; background: #f2f2f2; position: fixed; z-index: 1000; display: none;}
+.menuOpen .close {position: absolute; top: 47px; right: 66px;}
+.menuOpen::before {content: ''; position: absolute; width: 755px; height: 755px; background: #fff; top: 50%; left: 50%; transform: translate(-50%,-50%); border-radius: 50%;}
+.menuOpen ul {text-align: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);}
+.menuOpen ul li {font-size: 110px; font-family: 'zephyr'; margin-bottom: 40px; transition: all 1s;}
+.menuOpen ul li:nth-child(4) {margin-bottom: 0;}
+.menuOpen ul li a {display: block; width: 100%; height: 100%; transition: all 0.3s;}
+.menuOpen ul li a:hover,.menuOpen ul li a:focus {transform: rotate(-10deg); transition: all 0.3s;}
+
+/* menuOpen.on */
+.menuOpen.on {display: block;}
+.menuOpen.on::before {animation-name: circle; animation-duration: 0.5s; animation-timing-function: ease-in-out;}
+.menuOpen.on ul li:nth-child(1) {animation-name: list; animation-duration: 0.5s;}
+.menuOpen.on ul li:nth-child(2) {animation-name: list; animation-duration: 0.8s;}
+.menuOpen.on ul li:nth-child(3) {animation-name: list; animation-duration: 1.1s;}
+.menuOpen.on ul li:nth-child(4) {animation-name: list; animation-duration: 1.4s;}
+
+@keyframes circle {
+    0% {opacity: 0;}
+    40% {opacity: 0;}
+}
+
+@keyframes list {
+    0% {opacity: 0; transform: translateY(30px);}
+    40% {opacity: 0; transform: translateY(30px);}
+}
+
+/* mouse-cursor */
+#mouse-cursor {
+    position: absolute;
+    top:0;
+    left: 0;
+    will-change: transform;
+    transform: translate3d(-100%, -100%, 0);/* 처음 화면로드시 안보이게 하기 위해서 */
+    pointer-events: none;
+    mix-blend-mode: difference;
+    z-index: 1000;
+}
+
+#mouse-cursor > div {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    font-size: 10px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    --cursor-scale: 1;
+    transform: scale3d(var(--cursor-scale), var(--cursor-scale), 1);
+    will-change: transform;
+    transition: transform 150ms ease-in-out, background-color 150ms ease-in-out;
+}
+
+#mouse-cursor > div::after {
+    content: attr(data-name);
+    position: absolute;
+    color: #000;
+    transform: scale(0.35);
+    white-space: nowrap;
+}
+
+.cursor-text-mode {
+    mix-blend-mode: initial !important;
+}
+
+.cursor-text-mode>div {
+    background-color: #fff !important;
+}
+
+/* section.visual */
+.visual {width: 100%;}
+.visual .inner {width: 100%; padding: 270px 0 100px; box-sizing: border-box;}
+.visual .inner .titBox {font-family: 'zephyr'; font-size: 13.54vw; color: #fff; width: 92%; margin: 0 auto;}
+.visual .inner .titBox .top {line-height: 1.2; font-weight: inherit; perspective: 500px; transform-origin: 50% 50%; margin-left: -10px;}
+.visual .inner .titBox .middle {line-height: 1.2; font-weight: inherit; perspective: 500px; transform-origin: 50% 50%; display: none;}
+.visual .inner .titBox .bottom {line-height: 1.2; font-weight: inherit; perspective: 500px; transform-origin: 50% 50%; text-align: right; width: 95.5%;}
+.visual .inner .titBox span.textWrap {display: inline-block; transform-style: preserve-3d;}
+@keyframes spin {
+    0% {transform: rotateX(-90deg) translateY(150px); opacity: 0;}
+    30% {opacity: 0;}
+    100% {transform: rotateX(0deg) translateY(0px); opacity: 1;}
+}
+.visual .inner .titBox span.textWrap {animation: spin; animation-duration: 0.9s; animation-timing-function: ease-in-out;}
+
+/* section.introduce */
+.introduce {width: 100%; color: #fff;}
+.introduce .inner {padding: 360px 0 250px 0; width: 80%; margin: 0 auto; opacity: 0;}
+.introduce .inner .topBox {width: 80%; margin: 0 auto; display: flex; justify-content: space-between;}
+.introduce .inner .topBox .buttonWrap {width: 20%;}
+.introduce .inner .topBox .button {width: 149px; height: 149px; border: 1px solid #707070; border-radius: 50%; margin-top: 25px; transition: transform 100ms ease-out;}
+.introduce .inner .topBox .button:hover {background: #fff; border: #fff; color: #000; transition: color 0.3s; transition: background-color 0.3s;}
+.introduce .inner .topBox .button a {display: block; width: 100%; height: 100%; text-align: center; line-height: 149px; font-size: 15px; font-weight: 300;}
+.introduce .inner .topBox .txt {font-size: 3.1vw; font-family: 'zephyr'; line-height: 1.2;}
+.introduce .inner .topBox .txt span {position: relative;}
+.introduce .inner .topBox .txt span:before {position: absolute; content: ''; width: 0%; height: 1px; background: #fff; bottom: 15px; left: 0;}
+.introduce .inner .bottomBox {margin-top: 150px; display: flex; justify-content: space-around;}
+.introduce .inner .bottomBox .order {font-style: italic; font-size: 15px;}
+.introduce .inner .bottomBox .order span {margin-left: 15px; font-style: normal;}
+
+/* locomotive animation */
+.introduce .inner.opacity {opacity: 1; transition: opacity 1.5s;}
+.introduce .inner .topBox .txt span.width:before {width: 100%; transition: all 1.2s;}
+
+/* section.about */
+.about {width: 100%;}
+.about .inner {padding: 370px 0 275px;}
+.about .inner .content {position: relative; display: flex; justify-content: space-between;}
+.about .inner .img {width: 45%;}
+.about .inner .img img {width: 100%;}
+.about .inner .txtBox {width: 570px; margin: auto auto;}
+.about .inner .txtBox .bg {position: absolute; background: url(../img/about_circle.png) no-repeat center/cover; width: 420px; height: 420px; z-index: -1; top: -60%; right: -12%;}
+.about .inner .txtBox .tit {font-family: 'Noto Sans KR', sans-serif; font-size: 24px; margin-bottom: 15px; font-weight: 500;}
+.about .inner .txtBox .txt {font-family: 'Noto Sans KR', sans-serif; font-size: 18px; line-height: 2.2;}
+.about .inner .star1 {position: absolute; top: 12%; right: 43%; width: 60px;}
+.about .inner .star1 img {width: 100%;}
+.about .inner .star2 {position: absolute; bottom: 19%; right: 6%;}
+.about .inner .star2 img {width: 100%;}
+
+/* locomotive animation */
+.about .inner .txtBox.opacity {opacity: 1; transition: opacity 1.5s;}
+
+/* section.skills */
+.skills {width: 100%;}
+.skills .inner {width: 100%; position: relative; padding-bottom: 380px;}
+.skills .inner .line {position: absolute; left: 0; top: 0; width: 92%;}
+.skills .inner .skillBox {width: 560px; margin-left: 340px; padding-top: 125px; position: relative;}
+.skills .inner .skillBox .circle {width: 241px; height: 241px; text-align: center; font-size: 45px; font-family: 'zephyr'; line-height: 241px; color: #fff; background: #000; border-radius: 50%; margin-bottom: 46px;}
+.skills .inner .skillBox ul {width: 100%;}
+.skills .inner .skillBox ul li {font-size: 17px; padding: 12px 28px; border: 1px solid #000; border-radius: 50px; text-align: center; display: inline-block; margin-right: 10px; margin-bottom: 15px; cursor: pointer; transition: all 0.3s; background: #fff;}
+.skills .inner .skillBox ul li:hover {background: #000; color: #fff; transition: all 0.3s;}
+.skills .inner .skillBox .star1 {position: absolute; top: 60px; left: -50px;}
+.skills .inner .skillBox .star1 img {width: 100%;}
+.skills .inner .skillBox .star2 {position: absolute; top: 60px; left: 10px;}
+.skills .inner .skillBox .star2 img {width: 100%;}
+
+/* svg animation */
+/* .skills .inner .line path.dashline {stroke-dasharray: 3683; stroke-dashoffset: 0; animation-name: dashline; animation-duration: 5s;}
+
+@keyframes dashline {
+    0% {stroke-dashoffset: 3683;}
+    100% {stroke-dashoffset: 0;}
+} */
+
+/* section.gallery */
+.gallery {width: 100%;}
+.gallery .number {font-family: 'culture'; font-size: 270px; text-align: right; margin-right: 160px; letter-spacing: 15px;}
+.gallery .inner {padding: 500px 0; width: 100%;}
+.gallery .inner .textWrap {width: 100%; text-align: center;}
+.gallery .txtBox {margin: 0 auto; position: relative; opacity: 0; transition: opacity 1.5s;  display: inline-block;}
+.gallery .txtBox .txt {font-size: 22px; color: #707070; text-align: left;}
+.gallery .txtBox .tit {font-family: 'zephyr'; font-size: 4.43vw; font-weight: inherit; display: inline-block;}
+.gallery .txtBox .tit .mo {display: none;}
+.gallery .txtBox .bottomTxt {font-family: 'Noto Sans KR',sans-serif; color: #707070; font-size: 18px; text-align: right;}
+.gallery .txtBox .star {position: absolute; top: -20px; right: -35px;}
+.gallery .txtBox .star img {width: 100%;}
+
+/* locomotive animation */
+.gallery .txtBox.opacity {opacity: 1; transition: opacity 1.5s;}
+
+/* section.parallax */
+.container {width: 100%;}
+.container .parallax {width: 100%; height: 100vh;}
+.container .parallax a {display: block; width: 100%; height: 100%; cursor: none;}
+.container .parallax.first .desktop {background: url(../img/gallery1_dark.png) no-repeat center/cover; width: 100%; height: 100%;}
+.container .parallax.first .tablet {background: url(../img/mockup-1080-baexang.png) no-repeat center/cover; width: 100%; height: 100%; display: none;}
+.container .parallax.first .mobile {background: url(../img/mockup-600-baexang.png) no-repeat center/cover; width: 100%; height: 100%; display: none;}
+.container .parallax.second .desktop {background: url(../img/gallery2_dark.png) no-repeat center/cover; width: 100%; height: 100%;}
+.container .parallax.second .tablet {background: url(../img/mockup-1080-calmomentree.png) no-repeat center/cover; width: 100%; height: 100%; display: none;}
+.container .parallax.second .mobile {background: url(../img/mockup-600-calmomentree.png) no-repeat center/cover; width: 100%; height: 100%; display: none;}
+.container .parallax.third .desktop {background: url(../img/gallery3_dark.png) no-repeat center/cover; width: 100%; height: 100%;}
+.container .parallax.third .tablet {background: url(../img/mockup-1080-woosung.png) no-repeat center/cover; width: 100%; height: 100%; display: none;}
+.container .parallax.third .mobile {background: url(../img/mockup-600-woosung.png) no-repeat center/cover; width: 100%; height: 100%; display: none;}
+/* .container .parallax .tablet .button {position: absolute; width: 100px; height: 100px; background: #fff; border-radius: 50%; bottom: 25%; right: 15%;}
+.container .parallax .tablet .button a {display: none; line-height: 100px; font-size: 16px; text-align: center; width: 100%; height: 100%;} */
+
+/* section.interest */
+.interest {width: 100%;}
+.interest .inner {width: 100%; position: relative; padding-top: 130vh;}
+.interest .inner .number {margin-left: 160px; font-family: 'culture'; font-size: 270px; letter-spacing: 15px;}
+.interest .inner .line {position: absolute; bottom: 12%; left: 0; width: 100%;}
+.interest .inner .innerBox {width: 78%; margin: 280px auto 0; display: flex; justify-content: space-between; position: relative; padding-bottom: 400px; flex-wrap: wrap;}
+.interest .inner .innerBox .left {margin: auto 0; opacity: 0; width: 50%;}
+.interest .inner .innerBox .left .txtBox {margin-bottom: 100px;}
+.interest .inner .innerBox .left .txtBox .txt {font-size: 22px; color: #707070; margin-bottom: 10px;}
+.interest .inner .innerBox .left .txtBox .tit {font-family: 'zephyr'; font-size: 3vw; font-weight: inherit;}
+.interest .inner .innerBox .left .button {width: 149px; height: 149px; border: 1px solid #707070; border-radius: 50%;}
+.interest .inner .innerBox .left .button:hover {background: #000; border: #000; color: #fff; transition: color 0.3s; transition: background-color 0.3s;}
+.interest .inner .innerBox .left .button a {display: block; width: 100%; height: 100%; text-align: center; line-height: 149px; font-size: 15px;}
+.interest .inner .innerBox .right {width: 615px;}
+.interest .inner .innerBox .right video {width: 100%;}
+
+/* locomotive animation */
+.interest .inner .innerBox .left.opacity {opacity: 1; transition: opacity 1.5s;}
+
+/* section.contact */
+.contact {width: 100%;}
+.contact .inner {width: 100%; padding: 230px 0 50px 0; color: #fff;}
+.contact .inner .textWrap {width: 100%; overflow: hidden;}
+.contact .txtBox {width: 80%; margin-bottom: 100px; position: relative; float: right; padding-right: 80px;}
+.contact .txtBox .txt {font-size: 20px;}
+.contact .txtBox .titBox {position: relative; width: 100%;}
+.contact .txtBox .titBox .number {font-size: 20px; position: absolute; top: 60px; left: 100px;}
+.contact .txtBox .titBox .tit {font-family: 'zephyr'; font-size: 16.67vw; font-weight: inherit; margin-top: 70px; perspective: 500px; transform-origin: 50% 50%; text-align: right;}
+.contact .txtBox .titBox .tit span {display: inline-block; transform-style: preserve-3d;}
+.contact .txtBox .star {position: absolute; top: 80px; right: 80px;}
+.contact .info {margin-left: 75px; overflow: hidden;}
+.contact .info .phone {overflow: hidden; margin-bottom: 15px;}
+.contact .info .phone .img {float: left; width: 30px;}
+.contact .info .phone .img img {width: 100%;}
+.contact .info .phone .phoneNumber {float: left; font-size: 18px; line-height: 30px; margin-left: 12px;}
+.contact .info .mail {overflow: hidden;}
+.contact .info .mail .img {float: left; width: 30px;}
+.contact .info .mail .img img {width: 100%;}
+.contact .info .mail .mailAddress {float: left; font-size: 20px; line-height: 30px; margin-left: 12px;}
+
+/* locomotive animation */
+.contact .txtBox .titBox .tit span.ani {animation: spin; animation-duration: 0.9s; animation-timing-function: ease-in-out;}
+
+
+/* responsive */
+@media screen and (max-width:1600px) {
+    .about .inner .txtBox {width: 515px;}
+    .gallery .txtBox .bottomTxt {font-size: 16px;}
+    .interest .inner .innerBox .right {width: 45%;}
+    .contact .info {margin-left: 50px;}
+}
+
+@media screen and (max-width:1420px) {
+    .visual .inner {padding-top: 300px;}
+    .visual .inner .titBox {width: 95%;}
+
+    .introduce .inner {width: 90%;}
+    .introduce .inner .topBox .buttonWrap {margin-top: -15px;}
+    .introduce .inner .topBox .txt {font-size: 3.3vw;}
+
+    .about .inner .txtBox {width: 35%;}
+    .about .inner .txtBox .txt {font-size: 16px;}
+    .about .inner .txtBox .bg {width: 350px; height: 350px; top: -40%;}
+
+    .skills .inner .skillBox {margin-left: 250px;}
+
+    .gallery .number {margin-right: 100px;}
+
+    .interest .inner .number {margin-left: 100px;}
+    .interest .inner .innerBox .left .txtBox .tit {font-size: 3.5vw;}
+}
+
+@media screen and (max-width:1280px) {
+    .innerHeader .name {font-size: 32px;}
+
+    .visual .inner {padding-top: 240px;}
+    .visual .inner .titBox {font-size: 17vw;}
+    .visual .inner .titBox .top {line-height: 1;}
+    .visual .inner .titBox .middle {display: block; line-height: 1; margin-left: 200px;}
+    .visual .inner .titBox .bottom {line-height: 1; margin-left: -50px;}
+    .visual .inner .titBox .hide {display: none;}
+
+    .introduce .inner {padding: 300px 0 200px 0;}
+    .introduce .inner .topBox .buttonWrap {margin-top: -30px;}
+    .introduce .inner .topBox .txt span.width:before {display: none;}
+    .introduce .inner .bottomBox {margin-top: 100px;}
+
+    .about .inner {padding-top: 250px;}
+    .about .inner .content {flex-wrap: wrap;}
+    .about .inner .img {width: 550px; margin: 0 auto; margin-bottom: 30px;}
+    .about .inner .txtBox {width: 100%; text-align: center;}
+    .about .inner .txtBox .tit {margin: 0 auto 25px;}
+    .about .inner .txtBox .txt {width: 500px; margin: 0 auto;}
+    .about .inner .txtBox .bg {display: none;}
+    .about .inner .star1 {position: absolute; top: -3%; left: 16%;}
+    .about .inner .star2 {position: absolute; bottom: 26%; right: 17%;}
+
+    .skills .inner .skillBox {margin-left: 200px;}
+
+    .gallery .number {margin-right: 80px; font-size: 250px;}
+    .interest .inner .number {margin-left: 80px; font-size: 250px;}
+    .interest .inner .innerBox .left .txtBox .tit {font-size: 3.8vw;}
+
+    .contact .txtBox .titBox .number {top: 45px; left: 65px;}
+    .contact .txtBox .txt {font-size: 18px;}
+    .contact .inner {padding-bottom: 30px;}
+    .contact .info {margin-left: 30px;}
+}
+
+@media screen and (max-width:1080px) {
+    .innerHeader {padding: 30px 25px 0;}
+    .innerHeader nav .menu {border: none; width: auto; height: auto;}
+    .innerHeader nav .menu .hide {display: none;}
+    .innerHeader nav .menu span:nth-of-type(2) {display: block; font-size: 45px; color: #fff; text-align: right;}
+    .innerHeader nav .menu:before {display: none;}
+    .menuOpen .close {top: 39px; right: 33px;}
+
+    .visual .inner {padding-top: 270px;}
+
+    .introduce .inner .topBox {width: 90%;}
+    .introduce .inner .topBox .txt {font-size: 3.8vw;}
+    .introduce .inner .topBox .buttonWrap {margin-top: -20px;}
+
+    .about .inner .star1 {position: absolute; top: -3%; left: 12%;}
+    .about .inner .star2 {position: absolute; bottom: 34%; right: 12%;}
+    
+    .skills .inner {padding-bottom: 320px;}
+    .skills .inner .skillBox .circle {width: 200px; height: 200px; font-size: 34px; line-height: 200px;}
+
+    .gallery .inner {padding: 400px 0;}
+    .gallery .number {font-size: 220px;}
+    .gallery .txtBox .bottomTxt {display: none;}
+    .gallery .txtBox .txt {font-size: 16px;}
+    .gallery .inner .textWrap {width: 100%; text-align: left; margin-left: 50px;}
+
+    .interest .inner .number {font-size: 220px;}
+    .interest .inner .innerBox {position: relative; margin-bottom: 200px;}
+    .interest .inner .innerBox .left {width: 100%;}
+    .interest .inner .innerBox .right {position: absolute; bottom: 0%; right: 0%; width: 50%;}
+    .interest .inner .innerBox .left .txtBox .tit {font-size: 4.43vw;}
+    .interest .inner .innerBox .left .txtBox {margin-bottom: 80px;}
+    .interest .inner .innerBox .left .txtBox .txt {font-size: 16px;}
+
+    .contact .info .phone .phoneNumber {font-size: 16px;}
+    .contact .info .mail .mailAddress {font-size: 18px;}
+    .contact .txtBox .titBox .number {top: 35px; left: 45px;}
+
+    .container .parallax.first .desktop {display: none;}
+    .container .parallax.first .tablet {display: block;}
+    .container .parallax.second .desktop {display: none;}
+    .container .parallax.second .tablet {display: block;}
+    .container .parallax.third .desktop {display: none;}
+    .container .parallax.third .tablet {display: block;}
+}
+
+@media screen and (max-width:920px) {
+    .visual .inner {padding-top: 280px;}
+    .visual .inner .titBox .bottom {margin-left: -35px;}
+
+    .introduce .inner .topBox .button {width: 130px; height: 130px;}
+    .introduce .inner .topBox .button a {line-height: 130px; font-size: 13px;}
+    .introduce .inner .bottomBox {margin-top: 80px;}
+    .introduce .inner .bottomBox p {font-size: 13px;}
+
+    .about .inner .star1 {display: none;}
+    .about .inner .star2 {display: none;}
+
+    .skills .inner .skillBox {margin-left: 150px; width: 60%;}
+    .skills .inner .skillBox ul li {font-size: 15px; padding: 10px 22px;}
+
+    .gallery .number {margin-right: 50px; font-size: 190px;}
+    .gallery .txtBox .tit {text-align: left; margin-top: 20px; font-size: 6vw; line-height: 1;}
+    .gallery .txtBox .tit .mo {display: block;}
+    .gallery .txtBox .bottomTxt {text-align: left; margin-top: 15px; font-size: 16px;}
+    .gallery .txtBox .bottomTxt br {display: none;}
+    .gallery .txtBox .star {width: 45px; top: 5px; right: -10px;}
+
+    .interest .inner .number {margin-left: 60px; font-size: 190px;}
+    .interest .inner .innerBox .left .txtBox .tit {font-size: 5.5vw;}
+    .interest .inner .innerBox .left .button {width: 130px; height: 130px;}
+    .interest .inner .innerBox .left .button a {line-height: 130px; font-size: 13px;}
+    .interest .inner .innerBox .right {width: 55%;}
+    .interest .inner .innerBox .left .txtBox {margin-bottom: 45px;}
+
+    .contact .txtBox .txt {font-size: 16px;}
+    .contact .txtBox .titBox .number {top: 28px; left: 28px;}
+    .contact .txtBox .star {width: 55px;}
+    .contact .txtBox .star img {width: 100%;}
+
+    .menuOpen ul li {font-size: 85px; margin-bottom: 30px;}
+    .menuOpen::before {width: 600px; height: 600px;}
+}
+
+
+@media screen and (max-width:768px) {
+    .visual {height: 100vh;}
+    .visual .inner {height: 100vh; position: relative;}
+    .visual .inner .titBox {position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 92%;}
+    .visual .inner .titBox .middle {margin-left: 170px;}
+    .visual .inner .titBox .bottom {margin-left: -30px;}
+
+    .introduce .inner {padding: 200px 0 100px;}
+    .introduce .inner .topBox {flex-wrap: wrap; flex-direction: column-reverse;}
+    .introduce .inner .topBox .txt {width: 100%; font-size: 5.3vw;}
+    .introduce .inner .topBox .buttonWrap {width: 100%;}
+    .introduce .inner .topBox .button {margin-top: 60px; width: 149px; height: 149px;}
+    .introduce .inner .topBox .button a {line-height: 149px; font-size: 14px;}
+    .introduce .inner .bottomBox {display: none;}
+
+    .about .inner {padding-top: 200px;}
+
+    .gallery .number {font-size: 160px; margin-right: 20px;}
+    .gallery .inner {padding: 350px 0;}
+
+    .interest .inner .number {font-size: 160px; margin-left: 30px;}
+    .interest .inner .innerBox {flex-direction: column-reverse; padding-bottom: 150px; width: 100%; margin-bottom: 0;}
+    .interest .inner .innerBox .right {position: static; width: 70%; margin: 0 auto;}
+    .interest .inner .innerBox .left {margin: 30px auto 0; width: 85%; text-align: center;}
+    .interest .inner .innerBox .left .txtBox {margin-bottom: 50px;}
+    .interest .inner .innerBox .left .button {margin: 0 auto;}
+    .interest .inner .line {bottom: 40%;}
+    .interest .inner .innerBox .left .button {width: 149px; height: 149px;}
+    .interest .inner .innerBox .left .button a {line-height: 149px; font-size: 14px;}
+    .interest .inner .innerBox .left .txtBox .tit {font-size: 6.5vw;}
+
+    .contact .txtBox .titBox .number {top: 25px; left: 15px;}
+    .contact .txtBox .titBox .tit {margin-top: 30px;}
+    .contact .txtBox {padding-right: 30px;}
+    .contact .txtBox .star {top: 60px; right: 30px;}
+    
+    .menuOpen ul li {font-size: 75px; margin-bottom: 25px;}
+    .menuOpen::before {width: 500px; height: 500px;}
+}
+
+@media screen and (max-width:665px) {
+    .visual .inner .titBox .middle {margin-left: 130px;}
+}
+
+@media screen and (max-width:600px) {
+    .innerHeader .name {font-size: 28px;}
+
+    .visual .inner .titBox .middle {margin-left: 110px;}
+    .visual .inner .titBox .bottom {margin-left: -10px;}
+
+    .introduce .inner {padding-top: 50px;}
+
+    .about .inner .img {width: 80%; margin: 50 auto 0;}
+    .about .inner .txtBox .txt {width: 80%; line-height: 1.8;}
+
+    .skills .inner {padding-bottom: 230px;}
+    .skills .inner .skillBox {margin-left: 100px; width: 60%;}
+    .skills .inner .skillBox .star2 {left: 6%;}
+    .skills .inner .skillBox .circle {width: 150px; height: 150px; font-size: 28px; line-height: 150px;}
+
+    .gallery .txtBox .star {width: 40px;}
+    .gallery .inner {padding: 300px 0;}
+
+    .interest .inner .innerBox .right {width: 80%;}
+    .interest .inner .innerBox .left {width: 80%; margin-top: 30px;}
+    .interest .inner .innerBox .left .txtBox {margin-bottom: 30px;}
+
+    .contact .txtBox .titBox .number {top: 20px; left: 0px;}
+    .contact .txtBox .titBox .number {font-size: 16px;}
+    .contact .info .phone {margin-bottom: 10px;}
+    .contact .txtBox .star {width: 40px;}
+
+    .menuOpen ul li {font-size: 60px; margin-bottom: 20px;}
+    .menuOpen::before {width: 400px; height: 400px;}
+
+    .container .parallax.first .desktop {display: none;}
+    .container .parallax.first .tablet {display: none;}
+    .container .parallax.first .mobile {display: block;}
+    .container .parallax.second .desktop {display: none;}
+    .container .parallax.second .tablet {display: none;}
+    .container .parallax.second .mobile {display: block;}
+    .container .parallax.third .desktop {display: none;}
+    .container .parallax.third .tablet {display: none;}
+    .container .parallax.third .mobile {display: block;}
+}
+
+@media screen and (max-width:480px) {
+    .innerHeader .name {font-size: 25px;}
+    .innerHeader nav .menu span:nth-of-type(2) {font-size: 40px;}
+    .innerHeader {padding: 20px 15px 0;}
+    .innerHeader nav .menu {margin-top: -5px;}
+
+    .visual .inner .titBox .middle {margin-left: 90px;}
+    .visual .inner .titBox .bottom {width: 98%;}
+    .visual .inner .titBox {width: 88%;}
+
+    .introduce .inner {padding-top: 0;}
+
+    .about .inner .img {margin-bottom: 50px;}
+    .about .inner .txtBox .txt {font-size: 15px;}
+    .about .inner .txtBox .tit {margin-bottom: 10px; font-size: 22px;}
+
+    .skills .inner .skillBox ul li {font-size: 14px; padding: 8px 18px;}
+    .skills .inner .skillBox {margin-left: 80px;}
+    .skills .inner .skillBox .star1 {width: 50px; left: -40px; top: 75px;}
+    .skills .inner .skillBox .star2 {top: 70px;}
+
+    .gallery .number {font-size: 140px; margin-right: 10px;}
+    .gallery .txtBox .tit {font-size: 6.5vw;}
+    
+    .interest .inner {padding-top: 120vh;}
+    .interest .inner .number {font-size: 140px; margin-left: 20px;}
+    .interest .inner .innerBox .left {margin-top: 55px;}
+    .interest .inner .innerBox .left .txtBox {margin-bottom: 40px;}
+
+    .contact .txtBox .txt {font-size: 14px;}
+    .contact .info .mail .img  {width: 25px; margin-top: 2px;}
+    .contact .info .phone {margin-bottom: 0px;}
+    .contact .info .phone .img  {width: 25px; margin-top: 2px;}
+    .contact .info .phone .phoneNumber {font-size: 14px;}
+    .contact .info .mail .mailAddress {font-size: 16px;}
+    .contact .txtBox .txt {font-size: 14px;}
+    .contact .txtBox .star {top: 25px;}
+    .contact .txtBox {margin-bottom: 50px;}
+    .contact .txtBox .titBox .tit {margin-top: 50px;}
+
+    .menuOpen ul li {font-size: 12.5vw; margin-bottom: 10px;}
+    .menuOpen::before {display: none;}
+}
+
+@media screen and (max-width:380px) {
+    .visual .inner .titBox .middle {margin-left: 80px;}
+
+    .about .inner .txtBox .tit {font-size: 20px;}
+    .about .inner .txtBox .txt {font-size: 14px;}
+
+    .skills .inner .skillBox {margin-left: 70px;}
+    .skills .inner .skillBox ul li {font-size: 12px;}
+    .skills .inner .skillBox .circle {width: 140px; height: 140px; line-height: 140px;}
+
+    .gallery .number {font-size: 120px;}
+
+    .interest .inner .number {font-size: 120px;}
+
+    .interest .inner .innerBox .left .button {width: 135px; height: 135px;}
+    .interest .inner .innerBox .left .button a {line-height: 135px;}
+
+    .introduce .inner .topBox .button {width: 135px; height: 135px;}
+    .introduce .inner .topBox .button a {line-height: 135px;}
+}
