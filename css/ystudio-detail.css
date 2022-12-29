@@ -1,0 +1,128 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Fahkwang:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap');
+@font-face {
+    font-family: 'zephyr';
+    src:url(../font/zephyr-webfont.woff) format('woff'),
+        url(../font/zephyr-webfont.ttf) format('truetype'),
+        url(../font/zephyr-webfont.svg) format('svg');
+    font-weight: normal;
+    font-style: normal;
+};
+@font-face {
+    font-family: 'culture';
+    src:url(../font/culture-webfont.woff) format('woff'),
+        url(../font/culture-webfont.ttf) format('truetype'),
+        url(../font/culture-webfont.svg) format('svg');
+    font-weight: normal;
+    font-style: normal;
+};
+
+/* reset */
+* {margin: 0;padding: 0;}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, tbody, tfoot, thead, tr, th, td{margin:0;padding:0;}
+h1, h2, h3, h4, h5, h6 {font-weight: 700; font-size: inherit;}
+a {color: inherit; text-decoration: inherit;}
+img {vertical-align: middle;}
+a img {border: none;}
+li {list-style: none;}
+address, em, i {font-style: normal;}
+a:focus {outline: none}
+button:focus {outline: none}
+
+/* layout */
+body {font-family: 'Fahkwang', sans-serif;}
+.wrap {width: 100%; margin: 0 auto; overflow: hidden;}
+
+/* header */
+header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #000;}
+.innerHeader {width: 100%; height: 100%; padding: 40px 34px 0; box-sizing: border-box; overflow: hidden;}
+.innerHeader .name {float: left; font-size: 40px; font-family: 'culture'; line-height: 0.9;}
+.innerHeader nav {float: right; font-size: 16px;}
+.innerHeader nav .menu {width: 90px; height: 40px; border: 1px solid #000; border-radius: 50px; cursor: pointer; line-height: 40px; text-align: center; position: relative; transition: transform 0.5s; overflow: hidden;}
+.innerHeader nav .menu:before {content: attr(data-after); display: inline-block; transform: translateY(100%); position: absolute; left: 20px; top: 0; transition: inherit;}
+.innerHeader nav .menu span {display: inline-block; transform: translateY(0%); transition: inherit;}
+.innerHeader nav .menu:hover:before {transform: translateY(0%);}
+.innerHeader nav .menu:hover span {transform: translateY(-100%);}
+
+/* menuOpen */
+.menuOpen {width: 100%; height: 100vh; background: #f2f2f2; position: fixed; z-index: 1000; display: none;}
+.menuOpen .close {position: absolute; top: 47px; right: 66px;}
+.menuOpen::before {content: ''; position: absolute; width: 755px; height: 755px; background: #fff; top: 50%; left: 50%; transform: translate(-50%,-50%); border-radius: 50%;}
+.menuOpen ul {text-align: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);}
+.menuOpen ul li {font-size: 110px; font-family: 'zephyr'; margin-bottom: 40px; transition: all 1s;}
+.menuOpen ul li:nth-child(4) {margin-bottom: 0;}
+.menuOpen ul li a {display: block; width: 100%; height: 100%; transition: all 0.3s;}
+.menuOpen ul li a:hover,.menuOpen ul li a:focus {transform: rotate(-10deg); transition: all 0.3s;}
+
+/* menuOpen.on */
+.menuOpen.on {display: block;}
+.menuOpen.on::before {animation-name: circle; animation-duration: 0.5s; animation-timing-function: ease-in-out;}
+.menuOpen.on ul li:nth-child(1) {animation-name: list; animation-duration: 0.5s;}
+.menuOpen.on ul li:nth-child(2) {animation-name: list; animation-duration: 0.8s;}
+.menuOpen.on ul li:nth-child(3) {animation-name: list; animation-duration: 1.1s;}
+.menuOpen.on ul li:nth-child(4) {animation-name: list; animation-duration: 1.4s;}
+
+@keyframes circle {
+    0% {opacity: 0;}
+    40% {opacity: 0;}
+}
+
+@keyframes list {
+    0% {opacity: 0; transform: translateY(30px);}
+    40% {opacity: 0; transform: translateY(30px);}
+}
+
+/* section.main */
+.main {width: 100%;}
+.main .inner {width: 85%; margin: 0 auto 210px;}
+.main .inner .innerBox {width: 100%; margin-top: 200px; position: relative;}
+.main .inner .innerBox .title {font-size: 200px; font-family: 'zephyr'; font-weight: inherit; line-height: 1; margin-bottom: 80px; margin-left: 50px;}
+.main .inner .innerBox .img {width: 100%;}
+.main .inner .innerBox .img img {width: 100%;}
+.main .inner .innerBox .responsive {width: 340px; position: absolute; bottom: 0; right: 50px; overflow: hidden;}
+.main .inner .innerBox .responsive .button {color: #000; background: #fff; border-radius: 50px; margin: 30px 0; float: left; margin-right: 24px; width: 97px; height: 40px; text-align: center; line-height: 40px; transition: all 0.3s;}
+.main .inner .innerBox .responsive .button a {display: block; width: 100%; height: 100%;}
+.main .inner .innerBox .responsive .button:last-child {margin-right: 0;}
+.main .inner .innerBox .responsive .button:hover,.main .inner .innerBox .responsive .button:focus {color: #fff; background: #000; transition: all 0.3s;}
+.main .inner .company {margin-top: 80px; width: 940px; display: flex; justify-content: space-between;}
+.main .inner .company .tit {font-size: 25px;}
+.main .inner .company .txt {font-size: 18px; width: 64%; font-family: 'Noto Sans',sans-serif;}
+
+/* section.style */
+.style {width: 100%;}
+.style .inner {width: 85%; margin: 0 auto; display: flex; justify-content: space-between;}
+.style .inner .left {width: 35%;}
+.style .inner .left .title {font-family: 'zephyr'; font-weight: inherit; font-size: 85px;}
+.style .inner .right {width: 50%; margin-bottom: 250px;}
+.style .inner .right .color {display: flex; justify-content: space-between; padding: 50px 0; border-top: 1px solid #707070; border-bottom: 1px solid #707070; margin-top: 10px;}
+.style .inner .right .color .tit {width: 30%; font-size: 25px; color: #707070;}
+.style .inner .right .color ul {width: 65%;}
+.style .inner .right .color ul li {float: left; text-align: center; margin-right: 40px;}
+.style .inner .right .color ul li .txt {margin-top: 15px;}
+.style .inner .right .font {padding-top: 50px; display: flex; justify-content: space-between;}
+.style .inner .right .font .tit {width: 30%; font-size: 25px; color: #707070;}
+.style .inner .right .font ul {width: 65%;}
+.style .inner .right .font ul li:nth-child(1) {margin-bottom: 60px; font-family: 'Montserrat';}
+.style .inner .right .font ul li:nth-child(2) {margin-bottom: 60px; font-family: "Cormorant Garamond";}
+.style .inner .right .font ul li:nth-child(3) {margin-bottom: 60px; font-family: 'Noto Sans KR', sans-serif;}
+.style .inner .right .font ul li .fontName {font-size: 40px; margin-bottom: 30px;}
+.style .inner .right .font ul li .sample {font-size: 18px; line-height: 2;}
+
+/* section.mockup */
+.mockup {width: 100%;}
+.mockup .inner {width: 100%; margin-bottom: 200px; background: url(../img/ystudio-mockup.png) no-repeat center/cover; padding: 575px 0; background-attachment: fixed;}
+
+/* section.mockupVideo */
+.mockupVideo {width: 100%;}
+.mockupVideo .img {margin: 0 auto 100px; width: 60%;}
+.mockupVideo .img img {width: 100%;}
+
+/* section.fullScreen */
+.fullScreen {width: 100%; background: #717171; padding-top: 200px; position: relative;}
+.fullScreen .img {padding-bottom: 100px; width: 53%; margin: 0 auto;}
+.fullScreen .img img {width: 100%;}
+.fullScreen .top {position: absolute; bottom: 100px; right: 180px;}
+.fullScreen .top a {display: block; width: 100%; height: 100%;}

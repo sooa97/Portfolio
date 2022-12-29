@@ -1,0 +1,650 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Fahkwang:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&display=swap');
+@font-face {
+    font-family: 'zephyr';
+    src:url(../font/zephyr-webfont.woff) format('woff'),
+        url(../font/zephyr-webfont.ttf) format('truetype'),
+        url(../font/zephyr-webfont.svg) format('svg');
+    font-weight: normal;
+    font-style: normal;
+};
+@font-face {
+    font-family: 'culture';
+    src:url(../font/culture-webfont.woff) format('woff'),
+        url(../font/culture-webfont.ttf) format('truetype'),
+        url(../font/culture-webfont.svg) format('svg');
+    font-weight: normal;
+    font-style: normal;
+};
+
+/* reset */
+* {margin: 0;padding: 0;}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, tbody, tfoot, thead, tr, th, td{margin:0;padding:0;}
+h1, h2, h3, h4, h5, h6 {font-weight: 700; font-size: inherit;}
+a {color: inherit; text-decoration: inherit;}
+img {vertical-align: middle;}
+a img {border: none;}
+li {list-style: none;}
+address, em, i {font-style: normal;}
+a:focus {outline: none}
+button:focus {outline: none}
+
+/* layout */
+body {font-family: 'Fahkwang', sans-serif;}
+.wrap {width: 100%; margin: 0 auto; background: #fff;}/* bg를 적용해줘야 새로고침 시 배경 깜빡임 없음 */
+.has-scroll-smooth [data-scroll-container] {overflow-x: hidden;}/* 넘쳐나는 현상 해결 */
+[data-scroll-container] {perspective: 1px;}/* 깜빡이는 현상 해결 */
+
+/* header */
+header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff; mix-blend-mode: difference;}
+.innerHeader {width: 100%; height: 100%; padding: 40px 34px 0; box-sizing: border-box; overflow: hidden;}
+.innerHeader .name {float: left; font-size: 40px; font-family: 'culture'; line-height: 0.9;}
+.innerHeader nav {float: right; font-size: 16px;}
+.innerHeader nav .menu span:nth-of-type(2) {display: none;}
+.innerHeader nav .menu {width: 90px; height: 40px; border: 1px solid #fff; border-radius: 50px; cursor: pointer; line-height: 40px; text-align: center; position: relative; transition: transform 0.5s; overflow: hidden;}
+.innerHeader nav .menu:before {content: attr(data-after); display: inline-block; transform: translateY(100%); position: absolute; left: 20px; top: 0; transition: inherit;}
+.innerHeader nav .menu .hide {display: inline-block; transform: translateY(0%); transition: inherit;}
+.innerHeader nav .menu:hover:before {transform: translateY(0%);}
+.innerHeader nav .menu:hover .hide {transform: translateY(-100%);}
+
+/* menuOpen */
+.menuOpen {width: 100%; height: 100vh; background: #f2f2f2; position: fixed; z-index: 1000; display: none;}
+.menuOpen .close {position: absolute; top: 47px; right: 66px;}
+.menuOpen::before {content: ''; position: absolute; width: 755px; height: 755px; background: #fff; top: 50%; left: 50%; transform: translate(-50%,-50%); border-radius: 50%;}
+.menuOpen ul {text-align: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);}
+.menuOpen ul li {font-size: 110px; font-family: 'zephyr'; margin-bottom: 40px; transition: all 1s;}
+.menuOpen ul li:nth-child(4) {margin-bottom: 0;}
+.menuOpen ul li a {display: block; width: 100%; height: 100%; transition: all 0.3s;}
+.menuOpen ul li a:hover,.menuOpen ul li a:focus {transform: rotate(-10deg); transition: all 0.3s;}
+
+/* menuOpen.on */
+.menuOpen.on {display: block;}
+.menuOpen.on::before {animation-name: circle; animation-duration: 0.5s; animation-timing-function: ease-in-out;}
+.menuOpen.on ul li:nth-child(1) {animation-name: list; animation-duration: 0.5s;}
+.menuOpen.on ul li:nth-child(2) {animation-name: list; animation-duration: 0.8s;}
+.menuOpen.on ul li:nth-child(3) {animation-name: list; animation-duration: 1.1s;}
+.menuOpen.on ul li:nth-child(4) {animation-name: list; animation-duration: 1.4s;}
+
+@keyframes circle {
+    0% {opacity: 0;}
+    40% {opacity: 0;}
+}
+
+@keyframes list {
+    0% {opacity: 0; transform: translateY(30px);}
+    40% {opacity: 0; transform: translateY(30px);}
+}
+
+/* mouse-cursor */
+#mouse-cursor {
+    position: absolute;
+    top:0;
+    left: 0;
+    will-change: transform;
+    transform: translate3d(-100%, -100%, 0);/* 처음 화면로드시 안보이게 하기 위해서 */
+    pointer-events: none;
+    mix-blend-mode: difference;
+    z-index: 1000;
+}
+
+#mouse-cursor > div {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    font-size: 10px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    --cursor-scale: 1;
+    transform: scale3d(var(--cursor-scale), var(--cursor-scale), 1);
+    will-change: transform;
+    transition: transform 150ms ease-in-out, background-color 150ms ease-in-out;
+}
+
+#mouse-cursor > div::after {
+    content: attr(data-name);
+    position: absolute;
+    color: #000;
+    transform: scale(0.35);
+    white-space: nowrap;
+}
+
+.cursor-text-mode {
+    mix-blend-mode: initial !important;
+}
+
+.cursor-text-mode>div {
+    background-color: #fff !important;
+}
+
+/* section.visual */
+.visual {width: 100%;}
+.visual .inner {width: 100%; padding: 250px 0 215px 166px; overflow: hidden;}
+.visual .inner .title {font-family: 'zephyr'; font-size: 17.19vw; font-weight: inherit; perspective: 500px; transform-origin: 50% 50%; line-height: 1; width: 100%; margin-left: 50px;}
+.visual .inner .textBox {float: right; position: relative; perspective: 500px; transform-origin: 50% 50%; margin-right: 300px; margin-top: 30px;}
+.visual .inner .textBox .text {font-family: 'zephyr'; font-size: 3.02vw;}
+.visual .inner .textBox .mark1 {width: 2.08vw; position: absolute; top: -0.16vw; left: -3.28vw;}
+.visual .inner .textBox .mark1 img {width: 100%;}
+.visual .inner .textBox .mark2 {width: 2.08vw; position: absolute; bottom: 0.52vw; right: 7.81vw;}
+.visual .inner .textBox .mark2 img {width: 100%;}
+.visual .inner span {display: inline-block; transform-style: preserve-3d;}
+@keyframes spin {
+    0% {transform: rotateX(-90deg) translateY(150px); opacity: 0;}
+    30% {opacity: 0;}
+    100% {transform: rotateX(0deg) translateY(0px); opacity: 1;}
+}
+.visual .inner .title span {animation: spin; animation-duration: 0.9s; animation-timing-function: ease-in-out;}
+.visual .inner .textBox span {animation: spin; animation-duration: 1.1s; animation-timing-function: ease-in-out;}
+
+
+/* section.main */
+.main {width: 100%;}
+.main .inner {padding: 415px 0 450px 0; position: relative;}
+.main .inner .line {position: absolute; width: 106%; top: 10%; left: 0;}
+.main .inner .innerBox {position: relative; display: flex; justify-content: space-between;}
+.main .inner .innerBox .img {width: 45%;}
+.main .inner .innerBox .img img {width: 100%;}
+.main .inner .innerBox .txtBox {width: 570px; color: #fff; margin: auto auto;}
+.main .inner .innerBox .txtBox .tit {font-family: 'Noto Sans KR', sans-serif; font-size: 24px; margin-bottom: 25px; font-weight: 500;}
+.main .inner .innerBox .txtBox .txt {font-family: 'Noto Sans KR', sans-serif; font-size: 18px; line-height: 2.2; font-weight: 300;}
+.main .inner .innerBox .star1 {position: absolute; top: -50px; left: 53%;}
+.main .inner .innerBox .star2 {position: absolute; bottom: -100px; right: 7%;}
+
+
+/* section.keyword */
+.keyword {width: 100%;}
+.keyword .inner {margin-left: 230px; width: 620px; overflow: hidden; padding-bottom: 150px;}
+.keyword .inner .tit {font-family: 'zephyr'; font-size: 85px; font-weight: inherit; color: #fff; margin-bottom: 40px;}
+.keyword .inner ul {font-size: 20px; font-family: 'Noto Sans KR',sans-serif; float: left;}
+.keyword .inner ul li {background: pink; display: inline-block; padding: 12px 45px; margin: 0 15px 20px 0; background: #fff; border-radius: 50px;}
+.keyword .inner ul li:nth-child(2) {border: 1px solid #fff; background: none; color: #fff; padding: 11px 45px;}
+.keyword .inner ul li:nth-child(3) {background: #b2b2b2; color: #b2b2b2; padding: 12px 30px;}
+.keyword .inner ul li:nth-child(5) {background: #b2b2b2;}
+.keyword .inner ul li:nth-child(6) {background: none; border: 1px solid #fff; padding: 11px 30px; color: transparent;}
+.keyword .inner ul li:nth-child(8) {background: none; border: 1px solid #fff; color: #fff; padding: 11px 45px;}
+
+/* section.life */
+.life {width: 100%;}
+.life .number {font-family: 'culture'; font-size: 270px; text-align: right; padding: 180px 160px 280px 0; letter-spacing: 15px;}
+.life .inner {width: 100%; position: relative; margin-bottom: 200px;}
+.life .inner .titBox {position: absolute; top: -50px; left: 220px;}
+.life .inner .titBox .tit {font-family: 'zephyr'; font-size: 85px; font-weight: inherit; line-height: 370px;}
+.life .inner .titBox .bg {position: absolute; top: -15px; left: -70px; z-index: -1;}
+.life .inner .titBox .bg img {width: 370px;}
+.life .inner .line {width: 100%;}
+.life .inner .line img {width: 100%;}
+
+/* 아이콘 공통요소 */
+.life .inner .iconBox {overflow: hidden; position: absolute; opacity: 0;}
+.life .inner .iconBox .img {float: left; width: 120px;}
+.life .inner .iconBox .img img {width: 100%;}
+.life .inner .iconBox .txtBox {float: left; margin: 23px 0 0 18px;}
+.life .inner .iconBox .txtBox .year {font-size: 34px; font-weight: bold;}
+.life .inner .iconBox .txtBox .txt {font-family: 'Noto Sans KR',sans-serif; font-size: 18px;}
+
+/* locomotive animation */
+.life .inner .iconBox.opacity, .life .inner .iconBox2.opacity {opacity: 1; transition: opacity 1.5s;}
+
+.life .inner .baby {left: 34%; top: 17%;}
+.life .inner .airplane {position: absolute; right: 24%; top: 25%; opacity: 0;}
+.life .inner .airplane .img {width: 120px; margin-left: 100px;}
+.life .inner .airplane .img img {width: 100%;}
+.life .inner .airplane .txtBox {margin-top: 10px; text-align: right;}
+.life .inner .airplane .txtBox .year {font-size: 34px; font-weight: bold;}
+.life .inner .airplane .txtBox .txt {font-family: 'Noto Sans KR',sans-serif; font-size: 18px;}
+.life .inner .university {right: 31%; top: 46%;}
+.life .inner .intern {right: 40.5%; bottom: 37%;}
+.life .inner .intern .txtBox {margin-top: 10px;}
+.life .inner .passport {left: 35%; bottom: 22.5%;}
+.life .inner .coding {left: 22%; bottom: 10%;}
+.life .inner .coding .txtBox {margin-top: 10px;}
+
+/* section.interest */
+.interest {width: 100%;}
+.interest .number {font-family: 'culture'; font-size: 270px; letter-spacing: 15px; margin-left: 160px;}
+.interest .inner {width: 100%; height: 5000px; position: relative;}
+.interest .inner .textWrap {position: relative; height: 100vh;}
+.interest .inner .textBox {width: 660px; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); opacity: 0;}
+.interest .inner .textBox .title {font-family: 'zephyr'; font-size: 85px; font-weight: inherit; text-align: center; margin-bottom: 22px;}
+.interest .inner .textBox .text {text-align: center; font-family: 'Noto Sans KR',sans-serif; font-size: 18px; line-height: 2;}
+.interest .inner .textBox .star1 {position: absolute; width: 37px; top: -10%; right: 18%;}
+.interest .inner .textBox .star1 img {width: 100%;}
+.interest .inner .textBox .star2 {position: absolute; width: 23px; top: 0; right: 14%;}
+.interest .inner .textBox .star2 img {width: 100%;}
+.interest .inner .imgWrap {height: 5000px; position: relative;}
+.interest .inner .travel {position: absolute; top: 0%; right: 18%;}
+.interest .inner .camera {position: absolute; top: 4%; left: 8%;}
+.interest .inner .vintage {position: absolute; top: 18%; left: 22%;}
+.interest .inner .cat {position: absolute; top: 19%; right: 9%;}
+.interest .inner .cake {position: absolute; top: 30%; left: 13%;}
+.interest .inner .sunset {position: absolute; top: 38%; right: 13%;}
+.interest .inner .sea {position: absolute; top: 47%; left: 24%;}
+
+/* locomotive animation */
+.interest .inner .textBox.opacity {opacity: 1; transition: opacity 1.5s;}
+
+/* section.photo */
+.photo {width: 100%;}
+.photo .number {font-family: 'culture'; font-size: 270px; text-align: right; padding: 100px 160px 190px 0; letter-spacing: 15px;}
+.photo .title {font-family: 'zephyr'; font-size: 85px; font-weight: inherit; margin-bottom: 250px; text-align: right; margin-right: 160px;}
+.photo .title .mo {display: none;}
+.photo .inner {width: 100%;}
+.photo .container {display: none;}
+.photo .button.hide {display: none;}
+.photo .mySwiper {width: 90%; margin: 0 auto; padding: 150px 0 100px;}
+.photo .mySwiper .swiper-slide {transform: scale(0.8); transition: transform 0.5s;}
+.photo .mySwiper .swiper-slide img {width: 100%;}
+.photo .mySwiper .swiper-slide.swiper-slide-active {transform: scale(1.2);}
+.photo .inner .list {display: flex; flex-wrap: nowrap; position: relative; padding: 200px;}
+.photo .inner .list li {flex-shrink: 0 !important; position: relative; margin: 0 70px;}
+.photo .inner .list li.a {transform: rotate(-5deg); }
+.photo .inner .list li.b {transform: rotate(10deg); }
+.photo .inner .list li.c {width: 410px; position: relative;}
+.photo .inner .list li.c .button {width: 149px; height: 149px; border: 1px solid #707070; border-radius: 50%; position: absolute; top: 60%; left: 50%; transform: translate(-50%,-50%);}
+.photo .button {width: 149px; height: 149px; border: 1px solid #707070; border-radius: 50%;  margin: 0 auto; z-index: 2000;}
+.photo .button:hover {background: #000; border: #000; color: #fff; transition: color 0.3s; transition: background-color 0.3s;}
+.photo .button a {display: block; width: 100%; height: 100%; text-align: center; line-height: 149px; font-size: 15px;}
+
+/* section.contact */
+.contact {width: 100%;}
+.contact .inner {width: 100%; padding: 230px 0 50px 0; position: relative; margin-top: 300px;}
+.contact .inner .star {position: absolute; top: 120px; left: 28%;}
+.contact .inner .star img {width: 100%;}
+.contact .inner .line {position: absolute; width: 100%; top: -29%;}
+.contact .inner .textWrap {width: 100%; overflow: hidden;}
+.contact .txtBox {width: 80%; margin-bottom: 100px; position: relative; float: right; padding-right: 80px;}
+.contact .txtBox .txt {font-size: 20px;}
+.contact .txtBox .titBox {width: 100%; position: relative;}
+.contact .txtBox .titBox .number {font-size: 20px; position: absolute; top: 60px; left: 100px;}
+.contact .txtBox .titBox .tit {font-family: 'zephyr'; font-size: 16.67vw; font-weight: inherit; margin-top: 70px; perspective: 500px; transform-origin: 50% 50%; text-align: right;}
+.contact .txtBox .titBox .tit span {display: inline-block; transform-style: preserve-3d;}
+.contact .info {margin-left: 75px; overflow: hidden;}
+.contact .info .phone {overflow: hidden; margin-bottom: 15px;}
+.contact .info .phone .img {float: left; width: 30px;}
+.contact .info .phone .img img {width: 100%;}
+.contact .info .phone .phoneNumber {float: left; font-size: 18px; line-height: 30px; margin-left: 12px;}
+.contact .info .mail {overflow: hidden;}
+.contact .info .mail .img {float: left; width: 30px;}
+.contact .info .mail .img img {width: 100%;}
+.contact .info .mail .mailAddress {float: left; font-size: 20px; line-height: 30px; margin-left: 12px;}
+
+/* locomotive animation */
+.contact .txtBox .titBox .tit span.ani {animation: spin; animation-duration: 0.9s; animation-timing-function: ease-in-out;}
+
+
+/* responsive */
+@media screen and (max-width:1600px) {
+    .main .inner .innerBox .txtBox {width: 515px;}
+
+    .life .inner .university {right: 27%; top: 46%;}
+    .life .inner .intern {right: 36%; bottom: 36%;}
+    .life .inner .passport {left: 35%; bottom: 21.5%;}
+    .life .inner .coding {left: 22%; bottom: 9%;}
+
+    .interest .inner {height: 4600px;}
+    .interest .inner .img img {width: 100%;}
+    .interest .inner .vertical {width: 25%;}
+    .interest .inner .horizontal {width: 32%;}
+    .interest .inner .square {width: 26%;}
+    .interest .inner .travel {right: 15%;}
+    .interest .inner .camera {left: 13%;}
+    .interest .inner .cat {width: 23%; top: 20%;}
+    .interest .inner .sea {top: 46%; width: 23%;}
+    .interest .inner .imgWrap {height: 4600px;}
+
+    .contact .info {margin-left: 50px;}
+}
+
+@media screen and (max-width:1420px) {
+    .visual .inner {padding-left: 110px;}
+    .visual .inner .textBox {margin-right: 180px;}
+    .visual .inner .title {font-size: 21vw;}
+    .visual .inner .textBox .text {font-size: 3.52vw;}
+    .visual .inner .textBox .mark2 {width: 2.08vw; position: absolute; bottom: 0.62vw; right: 9.5vw;}
+
+    .main .inner .line {top: 11%;}
+    .main .inner .innerBox .txtBox {width: 35%;}
+    .main .inner .innerBox .txtBox .txt {font-size: 16px;}
+    .main .inner .innerBox .star1 {top: -120px;}
+    .main .inner .innerBox .star2 {bottom: -25px;}
+
+    .keyword .inner {margin-left: 180px;}
+
+    .life .number {padding-right: 100px;}
+    .life .inner .university {right: 25%; top: 46%;}
+    .life .inner .intern {right: 33%; bottom: 36%;}
+    .life .inner .passport {left: 35%; bottom: 21.5%;}
+    .life .inner .coding {left: 22%; bottom: 9%;}
+
+    .interest .number {margin-left: 100px;}
+    .interest .inner {height: 4400px;}
+    .interest .inner .imgWrap {height: 4400px;}
+
+    .photo .number {padding-right: 100px;}
+    .photo .title {margin-right: 140px;}
+    .photo .inner .list li.c {width: 430px;}
+
+    .contact .inner .line {top: -17%;}
+}
+@media screen and (max-width:1280px) {
+    .innerHeader .name {font-size: 32px;}
+
+    .visual .inner {padding-left: 80px; padding-top: 275px;}
+    .visual .inner .textBox {margin-right: 130px;}
+
+    .keyword .inner {margin-left: 140px;}
+    .keyword .inner .tit {font-size: 70px;}
+    .keyword .inner ul {font-size: 18px;}
+
+    .main .inner {padding-top: 250px; padding-bottom: 330px;}
+    .main .inner .innerBox {flex-wrap: wrap;}
+    .main .inner .innerBox .img {width: 550px; margin: 0 auto; margin-bottom: 30px;}
+    .main .inner .innerBox .txtBox {width: 100%; text-align: center;}
+    .main .inner .innerBox .txtBox .tit {margin: 0 auto 25px;}
+    .main .inner .innerBox .txtBox .txt {width: 500px; margin: 0 auto;}
+    .main .inner .innerBox .star1 {position: absolute; top: -3%; left: 16%;}
+    .main .inner .innerBox .star2 {position: absolute; bottom: 26%; right: 17%;}
+
+    .life .number {padding-right: 80px; font-size: 250px;}
+    .life .inner .titBox .tit {font-size: 70px; line-height: 320px;}
+    .life .inner .titBox .bg img {width: 320px;}
+    .life .inner .university {right: 23%; top: 46%;}
+    .life .inner .intern {right: 31%; bottom: 36%;}
+    .life .inner .passport {left: 36%; bottom: 21.5%;}
+    .life .inner .coding {left: 23%; bottom: 9%;}
+    .life .inner .iconBox .img {width: 100px;}
+    .life .inner .iconBox2 .img {width: 100px;}
+    .life .inner .iconBox .txtBox {margin-top: 16px;}
+    .life .inner .intern .txtBox {margin-top: 3px;}
+    .life .inner .coding .txtBox {margin-top: 3px;}
+    .life .inner .iconBox .txtBox .year {font-size: 30px;}
+    .life .inner .iconBox2 .txtBox .year {font-size: 30px;}
+    .life .inner .airplane .img {margin-left: 120px;}
+
+    .interest .number {margin-right: 80px; font-size: 250px;}
+    .interest .inner {height: 4200px;}
+    .interest .inner .textBox .title {font-size: 70px;}
+    .interest .inner .textBox .star1 {right: 23%;}
+    .interest .inner .textBox .star2 {right: 19%;}
+    .interest .inner .imgWrap {height: 4200px;}
+    .interest .inner .vertical {width: 27%;}
+    .interest .inner .horizontal {width: 32%;}
+    .interest .inner .square {width: 28%;}
+    .interest .inner .vintage {top: 17%;}
+    .interest .inner .cat {top: 20%; width: 25%;}
+    .interest .inner .cake {top: 28%;}
+    .interest .inner .sunset {top: 37%;}
+    .interest .inner .sea {top: 43%; width: 25%;}
+
+    .photo .number {padding-right: 80px; font-size: 250px; padding-top: 50px;}
+    .photo .title {font-size: 70px; margin-bottom: 200px;}
+    .photo .title .mo {display: block;}
+    .photo .inner .list li {width: 380px;}
+    .photo .inner .list li img {width: 100%;}
+    .photo .inner .list li.c {width: 410px;}
+
+    .contact .txtBox .titBox .number {top: 45px; left: 65px;}
+    .contact .txtBox .txt {font-size: 18px;}
+    .contact .inner {padding-bottom: 30px; margin-top: 180px;}
+    .contact .info {margin-left: 30px;}
+}
+
+@media screen and (max-width:1080px) {
+    .innerHeader {padding: 30px 25px 0;}
+    .innerHeader nav .menu {border: none; width: auto; height: auto;}
+    .innerHeader nav .menu .hide {display: none;}
+    .innerHeader nav .menu span:nth-of-type(2) {display: block; font-size: 45px; color: #fff; text-align: right;}
+    .innerHeader nav .menu:before {display: none;}
+    .menuOpen .close {top: 39px; right: 33px;}
+
+    .visual .inner {padding-left: 60px; padding-top: 300px;}
+    .visual .inner .textBox {margin-right: 105px;}
+    .visual .inner .textBox .text {font-size: 4.2vw;}
+    .visual .inner .textBox .mark1 {width: 3vw; left: -4.8vw;}
+    .visual .inner .textBox .mark2 {width: 3vw; right: 10.7vw;}
+
+    .main .inner .innerBox .star1 {top: -3%; left: 12%;}
+    .main .inner .innerBox .star2 {bottom: 34%; right: 12%;}
+
+    .keyword .inner {margin-left: 120px;}
+
+    .life .number {font-size: 220px; padding-bottom: 220px;}
+    .life .inner .titBox {left: 180px;}
+    .life .inner .titBox .bg img {width: 300px;}
+    .life .inner .titBox .tit {line-height: 300px;}
+    .life .inner .university {right: 18%; top: 46%;}
+    .life .inner .intern {right: 25%; bottom: 36%;}
+    .life .inner .passport {left: 36%; bottom: 21.5%;}
+    .life .inner .coding {left: 23%; bottom: 9%;}
+
+    .interest .number {font-size: 220px;}
+    .interest .inner {height: 4000px;}
+    .interest .inner .imgWrap {height: 4000px;}
+    .interest .inner .vintage {top: 15%;}
+    .interest .inner .cat {top: 18%;}
+    .interest .inner .cake {top: 26%;}
+    .interest .inner .sunset {top: 35%;}
+    .interest .inner .sea {top: 40%; left: 22%;}
+
+    .photo .number {font-size: 220px;}
+    .photo .title {font-size: 70px; margin-right: 120px; margin-bottom: 150px;}
+    .photo .inner .list li {width: 330px; margin: 0 45px;}
+    .photo .inner .list li.c {width: 340px;}
+
+    .contact .inner .line {top: -8%;}
+    .contact .info .phone .phoneNumber {font-size: 16px;}
+    .contact .info .mail .mailAddress {font-size: 18px;}
+    .contact .txtBox .titBox .number {top: 35px; left: 45px;}
+}
+
+@media screen and (max-width:920px) {
+    .visual {height: 100vh; position: relative;}
+    .visual .inner {position: absolute; top: 50%; transform: translateY(-50%); padding-top: 100px; padding-bottom: 100px;}
+
+    .main .inner .innerBox .star1 {display: none;}
+    .main .inner .innerBox .star2 {display: none;}
+
+    .keyword .inner {margin-left: 100px; width: 70%;}
+    .keyword .inner ul {font-size: 16px;}
+    .keyword .inner ul li {padding: 10px 35px;}
+    .keyword .inner ul li:nth-child(2) {padding: 9px 35px;}
+    .keyword .inner ul li:nth-child(3) {padding: 10px 30px;}
+    .keyword .inner ul li:nth-child(6) {padding: 9px 30px;}
+    .keyword .inner ul li:nth-child(8) {padding: 9px 35px;}
+
+    .life .number {padding-right: 50px; font-size: 190px;}
+    .life .inner {margin-bottom: 250px; margin-left: 150px;}
+    .life .inner .titBox {width: 450px;}
+    .life .inner .titBox .bg {display: none;}
+    .life .inner .titBox .tit {line-height: normal; margin-bottom: 50px;}
+    .life .inner .titBox {position: static;}
+    .life .inner .line img {display: none;}
+    .life .inner .iconBox {position: static; width: 450px; margin-bottom: 50px;}
+    .life .inner .iconBox2 {position: static; width: 450px; margin-bottom: 50px;}
+    .life .inner .airplane .img {margin-left: 0px;}
+    .life .inner .airplane .txtBox {text-align: left;}
+    .life .inner .iconBox .img {margin: 0 auto;}
+    .life .inner .iconBox2 {overflow: hidden;}
+    .life .inner .iconBox2 .img {float: left;}
+    .life .inner .iconBox2 .txtBox {float: left; margin: 16px 0 0 18px;}
+
+    .interest .number {margin-left: 60px; font-size: 190px;}
+    .interest .inner .vertical {width: 27%;}
+    .interest .inner .horizontal {width: 33%;}
+    .interest .inner .square {width: 28%;}
+    .interest .inner {height: 3800px;}
+    .interest .inner .imgWrap {height: 3800px;}
+    .interest .inner .sunset {top: 33%;}
+    .interest .inner .sea {top: 39%;}
+
+    .photo .number {padding-right: 50px; font-size: 190px;}
+    .photo .title {margin-right: 100px;}
+    .photo .inner .list li {width: 300px; margin: 0 40px;}
+    .photo .inner .list li.c {width: 310px;}
+
+    .contact .inner .star {top: 150px;}
+    .contact .inner .line {top: -3%;}
+    .contact .txtBox .txt {font-size: 16px;}
+    .contact .txtBox .titBox .number {top: 28px; left: 28px;}
+    .contact .inner .star {width: 55px;}
+    .contact .txtBox .star img {width: 100%;}
+
+    .menuOpen ul li {font-size: 85px; margin-bottom: 30px;}
+    .menuOpen::before {width: 600px; height: 600px;}
+}
+
+@media screen and (max-width:768px) {
+    .visual .inner {padding-left: 40px;}
+    .visual .inner .textBox {margin-right: 80px;} 
+
+    .keyword .inner .tit {font-size: 60px;}
+
+    .main .inner {padding-top: 200px; padding-bottom: 250px;}
+
+    .life .number {font-size: 160px; padding-right: 20px;}
+    .life .inner {margin-left: 100px;}
+    .life .inner .titBox .tit {font-size: 60px;}
+    .life .inner .iconBox .txtBox {margin-top: 19px;}
+    .life .inner .iconBox2 .txtBox {margin-top: 19px;}
+    .life .inner .iconBox .txtBox .year {font-size: 26px;}
+    .life .inner .iconBox .txtBox .txt {font-size: 16px;}
+    .life .inner .iconBox2 .txtBox .year {font-size: 26px;}
+    .life .inner .iconBox2 .txtBox .txt {font-size: 16px;}
+    .life .inner .coding .txtBox {margin-top: 9px;}
+    .life .inner .intern .txtBox {margin-top: 9px;}
+
+    .interest .number {font-size: 160px; margin-left: 30px;}
+    .interest .inner .textBox {width: 500px;}
+    .interest .inner .textBox .title {font-size: 60px;}
+    .interest .inner .textBox .star1 {right: 19%;}
+    .interest .inner .textBox .star2 {right: 14%;}
+    .interest .inner .vertical {width: 30%;}
+    .interest .inner .horizontal {width: 43%;}
+    .interest .inner .square {width: 30%;}
+    .interest .inner {height: 3800px;}
+    .interest .inner .imgWrap {height: 3800px;}
+    .interest .inner .camera {top: 4%;}
+    .interest .inner .vintage {left: 22%; top: 14%;}
+    .interest .inner .cat {top: 23%; width: 28%;}
+    .interest .inner .travel {right: 12%;}
+    .interest .inner .sunset {top: 37%;}
+    .interest .inner .sea {top: 41%; left: 18%; width: 28%;}
+
+    .photo .number {font-size: 160px; padding-right: 20px;}
+    .photo .inner {display: none;}
+    .photo .container {display: block;}
+    .photo .button.hide {display: block;}
+    .photo .title {margin: 0 auto; text-align: center; font-size: 60px;}
+
+    .contact .inner .line {top: 0%;}
+    .contact .txtBox .titBox .number {top: 25px; left: 15px;}
+    .contact .txtBox .titBox .tit {margin-top: 30px;}
+    .contact .txtBox {padding-right: 30px;}
+    .contact .inner .star {left: 36%; top: 140px;}
+    
+    .menuOpen ul li {font-size: 75px; margin-bottom: 25px;}
+    .menuOpen::before {width: 500px; height: 500px;}
+}
+
+@media screen and (max-width:600px) {
+    .innerHeader .name {font-size: 28px;}
+
+    .visual .inner {padding-left: 0;}
+    .visual .inner .title {text-align: center; margin-left: 0; width: 100%; padding-left: 15px;}
+    .visual .inner .textBox {margin-right: 0px; text-align: center; width: 100%; float: none;  padding-left: 23px;}
+    .visual .inner .textBox .mark1 {display: none;}
+    .visual .inner .textBox .mark2 {display: none;}
+
+    .main .inner .line {display: none;}
+    .main .inner .innerBox .img {width: 80%; margin: 50 auto 0;}
+    .main .inner .innerBox .txtBox .txt {width: 80%; line-height: 1.8;}
+
+    .keyword .inner .tit {font-size: 55px;}
+    .keyword .inner {margin-left: 70px;}
+    .keyword .inner ul li:nth-child(3) {display: none;}
+    .keyword .inner ul li:nth-child(6) {display: none;}
+
+    .life .inner {margin-left: 70px;}
+    .life .inner .titBox .tit {font-size: 55px;}
+    .interest .inner .textBox {width: 80%;}
+    .interest .inner .textBox .text {font-size: 16px; line-height: 1.8;}
+    .interest .inner .textBox .title {font-size: 55px;}
+    .interest .inner .imgWrap .img {position: static; width: 50%; margin: 0 auto 40px;}
+    .interest .inner {height: 4600px;}
+    .interest .inner .imgWrap {height: 4600px;}
+    .interest .inner .textBox .star1 {top: -11%;}
+
+    .photo .number {padding-top: 0px;}
+    .photo .title {font-size: 55px;}
+
+    .contact .inner .line {top: 8%;}
+    .contact .txtBox .titBox .number {top: 20px; left: 0px;}
+    .contact .txtBox .titBox .number {font-size: 16px;}
+    .contact .info .phone {margin-bottom: 10px;}
+    .contact .inner .star {width: 40px; top: 170px;}
+
+    .menuOpen ul li {font-size: 60px; margin-bottom: 20px;}
+    .menuOpen::before {width: 400px; height: 400px;}
+}
+
+@media screen and (max-width:480px) {
+    .innerHeader .name {font-size: 28px;}
+
+    .main .inner {padding-top: 100px; padding-bottom: 280px;}
+    .main .inner .img {margin-bottom: 50px;}
+    .main .inner .innerBox .txtBox .tit {margin-bottom: 10px;}
+    .main .inner .innerBox .img {margin-bottom: 40px;}
+    .main .inner .innerBox .txtBox .txt {font-size: 15px;}
+
+    .keyword .inner {padding-bottom: 50px;}
+    .keyword .inner .tit {font-size: 45px;}
+    .keyword .inner ul li {padding: 10px 25px;}
+    .keyword .inner ul li:nth-child(2) {padding: 10px 25px;}
+    .keyword .inner ul li:nth-child(8) {padding: 10px 25px;}
+
+    .life .number {font-size: 140px; padding-right: 10px; padding-bottom: 180px; padding-top: 200px;}
+    .life .inner {margin-left: 0;}
+    .life .inner .titBox {margin: 0 auto; text-align: center; width: 80%;}
+    .life .inner .titBox .tit {font-size: 45px;}
+    .life .inner .iconBox .txtBox .year {font-size: 24px;}
+    .life .inner .iconBox2 .txtBox .year {font-size: 24px;}
+    .life .inner .iconBox .txtBox .txt {font-size: 15px;}
+    .life .inner .iconBox2 .txtBox .txt {font-size: 15px;}
+    .life .inner .iconBox {margin: 0 auto 30px; width: 100%;}
+    .life .inner .iconBox2 {margin: 0 auto 30px; width: 100%;}
+    .life .inner .iconBox .img {float: none;}
+    .life .inner .iconBox .txtBox {float: none; text-align: center; margin-left: 0;}
+    .life .inner .iconBox2 .img {float: none; margin: 0 auto;}
+    .life .inner .iconBox2 .txtBox {float: none; text-align: center; margin-left: 0;}
+    .life .inner .intern .txtBox {margin-top: 16px;}
+    .life .inner .coding .txtBox {margin-top: 16px;}
+
+    .interest .number {font-size: 140px; margin-left: 20px;}
+    .interest .inner .textBox .title {font-size: 45px;}
+    .interest .inner .textBox .text {font-size: 15px;}
+    .interest .inner {height: 4200px;}
+    .interest .inner .imgWrap {height: 4200px;}
+    .interest .inner .textBox .star1 {right: 18%; top: -12%;}
+    .interest .inner .textBox .star2 {right: 12%; top: -1%;}
+
+    .photo .number {font-size: 140px; padding-right: 10px;}
+    .photo .title {font-size: 45px;}
+    .photo .mySwiper {padding: 100px 0 70px;}
+
+    .contact .inner .line {top: 15%;}
+    .contact .txtBox .txt {font-size: 14px;}
+    .contact .info .mail .img  {width: 25px; margin-top: 2px;}
+    .contact .info .phone {margin-bottom: 0px;}
+    .contact .info .phone .img  {width: 25px; margin-top: 2px;}
+    .contact .info .phone .phoneNumber {font-size: 14px;}
+    .contact .info .mail .mailAddress {font-size: 16px;}
+    .contact .txtBox .txt {font-size: 14px;}
+    .contact .txtBox {margin-bottom: 50px;}
+    .contact .txtBox .titBox .tit {margin-top: 50px;}
+
+    .menuOpen ul li {font-size: 12.5vw; margin-bottom: 10px;}
+    .menuOpen::before {display: none;}
+}

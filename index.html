@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to my Portfolio</title>
+    <!-- css -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/locomotive-scroll.min.css">
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+    <!-- js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/ScrollTrigger.min.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/scrolla.jquery.min.js"></script>
+    <script src="js/locomotive-scroll.min.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <div class="innerHeader">
+                <div class="name"><a href="index.html">SOOA<br>PARK</a></div>
+                <nav>
+                    <div class="menu" data-after="MENU">
+                        <span class="hide">MENU</span>
+                        <span class="lnr lnr-menu"></span>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <div class="menuOpen">
+            <p class="close"><img src="img/close.png" alt=""></p>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="gallery.html">GALLERY</a></li>
+                <li><a href="portfolio.html">PORTFOLIO</a></li>
+            </ul>
+        </div>
+        <div id="mouse-cursor"><div></div></div>
+        <div data-scroll-container>
+        <!-- scrollTrigger를 적용하기위해서 data-scroll-section은 작성하지 않는다 -->
+            <section class="visual" data-color="#000">
+                <div class="inner">
+                    <div class="titBox">
+                        <h2 class="top" data-scroll data-scroll-speed="-3" data-scroll-direction="horizontal" data-scroll-repeat="true"><span class="textWrap">WELCOME <span class="hide">TO</span></span></h2>
+                        <h2 class="middle" data-scroll data-scroll-speed="2" data-scroll-direction="horizontal" data-scroll-repeat="true"><span class="textWrap"><span class="mo">TO MY</span></span></h2>
+                        <h2 class="bottom" data-scroll data-scroll-speed="3" data-scroll-direction="horizontal" data-scroll-repeat="true"><span class="textWrap"><span class="hide">MY</span> PORTFOLIO</span></h2>
+                    </div>
+                </div>
+            </section>
+            <section class="introduce" data-color="#333">
+                <div class="inner" data-scroll data-scroll-class="opacity">
+                    <div class="topBox">
+                        <div class="buttonWrap disabled-mobile" data-scroll data-scroll-speed="2.5" data-scroll-repeat="true">
+                            <div class="button"><a href="about.html">SEE MORE</a></div>
+                        </div>
+                        <div class="txt disabled-mobile" data-scroll data-scroll-speed="1" data-scroll-repeat="true">
+                            HELLO! MY NAME IS <span data-scroll data-scroll-class="width">SOOA PARK.</span> <br>
+                            I AM A CREATIVE WEB PUBLISHER <br>
+                            WITH GREAT POTENTIAL.
+                        </div>
+                    </div>
+                    <div class="bottomBox" data-scroll data-scroll-speed="1.5" data-scroll-repeat="true">
+                        <p class="order">No.1<span>GALLERY</span></p>
+                        <p class="order">No.2<span>MY INTEREST</span></p>
+                        <p class="order">No.3<span>CONTACT</span></p>
+                    </div>
+                </div>
+            </section>
+            <section class="about" data-color="#fff">
+                <div class="inner">
+                    <div class="content">
+                        <p class="img disabled-mobile" data-scroll data-scroll-speed="1" data-scroll-repeat="true"><img src="img/main.jpg" alt="메인 이미지"></p>
+                        <div class="txtBox disabled-mobile" data-scroll data-scroll-speed="2.5" data-scroll-repeat="true">
+                            <div class="bg" data-scroll data-scroll-speed="0.5" data-scroll-repeat="true"></div>
+                            <p class="tit">
+                                안녕하세요, 박수아입니다 :)
+                            </p>
+                            <p class="txt">
+                                대학교에서 법을 전공했지만 디자인에 관심을 가지게 되어 6개월 동안 국비학원에서 모바일 UI/UX 디자인&프론트엔드 과정을 공부했습니다. 앞으로의 목표는 꾸준한 학습을 통해 프론트엔드 분야의 전문가가 되는 것입니다. 아직 부족한 부분이 있을 수 있지만 성장하는 모습 보여드리겠습니다.
+                            </p>
+                        </div>
+                        <p class="star1" data-scroll data-scroll-speed="2" data-scroll-repeat="true"><img src="img/star_60.png" alt=""></p>
+                        <p class="star2" data-scroll data-scroll-speed="2" data-scroll-repeat="true"><img src="img/star_40.png" alt=""></p>
+                    </div>
+                </div>
+            </section>
+            <section class="skills" data-color="#fff">
+                <div class="inner">
+                    <div class="line">
+                        <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1719.62 970.96">
+                            <defs>
+                                <style>
+                                    .cls-1 {
+                                        fill: none;
+                                        stroke: #000;
+                                        stroke-miterlimit: 10;
+                                    }
+                                </style>
+                            </defs>
+                            <path class="cls-1" data-scroll data-scroll-class="dashline"
+                                d="M.19,.46C433.98,181.12,964.13,354.06,1469.65,420.95c100.6,13.31,236.39,16.15,248.17-9.56,11.29-24.64-51.7-63.31-155.1-77.65-138.88-19.25-293.06,75.47-336.63,100.34C1050.3,534.44,498.03,953.88,.19,970.46" />
+                        </svg>
+                    </div>
+                    <div class="skillBox disabled-mobile" data-scroll data-scroll-speed="1.5" data-scroll-repeat="true">
+                        <div class="circle disabled-mobile">SKILLS</div>
+                        <ul class="disabled-mobile" data-scroll data-scroll-speed="1.2" data-scroll-repeat="true">
+                            <li>PHOTOSHOP</li>
+                            <li>ILLUSTRATION</li>
+                            <li>XD</li>
+                            <li>FIGMA</li>
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>JAVA SCRIPT</li>
+                        </ul>
+                        <div class="star1"><img src="img/star_58.png" alt=""></div>
+                        <div class="star2"><img src="img/star_29.png" alt=""></div>
+                    </div>
+                </div>
+            </section>
+            <section class="gallery" data-color="#fff">
+                <p class="number">01.</p>
+                <div class="inner disabled-mobile" data-scroll data-scroll-speed="2" data-scroll-repeat="true">
+                    <div class="textWrap">
+                        <div class="txtBox" data-scroll data-scroll-class="opacity">
+                            <p class="txt">GALLERY</p>
+                            <h3 class="tit">Let me show you <br class="mo"> some of my works.</h3>
+                            <p class="bottomTxt">수업을 통해 배운 것을 활용하여<br>개인적으로 작업한 클론코딩입니다.</p>
+                            <p class="star"><img src="img/star_55.png" alt=""></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="container">
+                <section class="parallax first" data-color="#fff">
+                    <a href="baexang-detail.html">
+                        <div class="bg desktop" data-cursor="view" data-name="VIEW"></div>
+                        <div class="bg tablet"></div>
+                        <div class="bg mobile"></div>
+                    </a>
+                </section>
+                <section class="parallax second" data-color="#fff">
+                    <a href="calmomentree-detail.html" data-cursor="view" data-name="VIEW">
+                        <div class="bg desktop" data-cursor="view" data-name="VIEW"></div>
+                        <div class="bg tablet"></div>
+                        <div class="bg mobile"></div>
+                    </a>
+                </section>
+                <section class="parallax third" data-color="#fff">
+                    <a href="woosung-detail.html" data-cursor="view" data-name="VIEW">
+                        <div class="bg desktop" data-cursor="view" data-name="VIEW"></div>
+                        <div class="bg tablet"></div>
+                        <div class="bg mobile"></div>
+                    </a>
+                </section>
+            </div>
+            <section class="interest" data-color="#fff">
+                <div class="inner">
+                    <p class="number">02.</p>
+                    <div class="line">
+                        <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1969.09 326.08">
+                            <defs>
+                                <style>
+                                    .cls-1 {
+                                        fill: none;
+                                        stroke: #000;
+                                        stroke-miterlimit: 10;
+                                    }
+                                </style>
+                            </defs>
+                            <path class="cls-1"
+                                d="M.21,230.38c257.34,119.13,539.31,119.62,787.5,39.32,172.59-55.84,244.22-128.13,420.65-190.25,199.13-70.12,436.87-131.83,760.55-7.94" />
+                        </svg>
+                    </div>
+                    <div class="innerBox">
+                        <div class="left" data-scroll data-scroll-class="opacity">
+                            <div class="txtBox disabled-mobile" data-scroll data-scroll-speed="1.2" data-scroll-repeat="true">
+                                <p class="txt">MY INTEREST</p>
+                                <h3 class="tit">These are my interests<br>and things I like.</h3>
+                            </div>
+                            <div class="button disabled-mobile" data-scroll data-scroll-speed="2.3" data-scroll-repeat="true"><a href="about.html#interest">SEE MORE</a></div>
+                        </div>
+                        <div class="right disabled-mobile" data-scroll data-scroll-speed="2" data-scroll-repeat="true">
+                            <video src="img/interest.mp4" autoplay muted loop playsinline></video>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="contact" data-color="#000">
+                <div class="inner">
+                    <div class="textWrap">
+                        <div class="txtBox disabled-mobile" data-scroll data-scroll-speed="1" data-scroll-repeat="true">
+                            <p class="txt">IF YOU ARE<br>INTERESTED IN ME,</p>
+                            <div class="titBox disabled-mobile" data-scroll data-scroll-speed="2" data-scroll-repeat="true">
+                                <p class="number">03.</p>
+                                <h3 class="tit"><span data-scroll data-scroll-class="ani">CONTACT</span></h3>
+                            </div>
+                            <p class="star"><img src="img/star_68_w.png" alt=""></p>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <div class="phone">
+                            <p class="img"><img src="img/phone.png" alt=""></p>
+                            <p class="phoneNumber">010-3344-5865</p>
+                        </div>
+                        <div class="mail">
+                            <p class="img"><img src="img/mail.png" alt=""></p>
+                            <p class="mailAddress">kidsooa08@naver.com</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script>
+        //scrollTrigger pin + locomotive scroll
+        gsap.registerPlugin(ScrollTrigger);
+
+        const locoScroll = new LocomotiveScroll({
+            el: document.querySelector("[data-scroll-container]"),
+            smooth: true,
+            tablet: { smooth: true },
+            smartphone: { smooth: true }
+        });
+        setTimeout(() => {
+                locoScroll.update();
+            }, 5000);// footer cut off 해결
+
+        locoScroll.on("scroll", ScrollTrigger.update);
+        ScrollTrigger.scrollerProxy("[data-scroll-container]", {
+            scrollTop(value) {
+                return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
+            },
+            getBoundingClientRect() {
+                return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
+            },
+            pinType: document.querySelector("[data-scroll-container]").style.transform ? "transform" : "fixed"
+        });
+        ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+        ScrollTrigger.refresh();
+
+        //scrollTrigger pin gallery img
+        gsap.utils.toArray('.parallax').forEach((section,i)=>{
+            ScrollTrigger.create({
+                trigger:section,
+                start:'top',
+                pin:true,
+                pinSpacing:false,
+                scroller: "[data-scroll-container]"//추가해야 trigger가 제대로 작동
+            });
+            ScrollTrigger.create({
+                snap:1/(section.length -1)
+            });
+        });
+
+        //scrollTrigger bg change
+        gsap.utils.toArray("section").forEach(function(bg){
+            var color = bg.getAttribute('data-color');
+
+            ScrollTrigger.create({
+                trigger:bg,
+                start:"top center",
+                end:"bottom center",
+                scrub:true,
+                scroller: "[data-scroll-container]",
+                onEnter:()=>gsap.to('.wrap',{//스크롤 위치가 '시작'을 지나 앞으로 이동할 때
+                    backgroundColor:color,
+                    duration:1
+                }),
+                onEnterBack:()=>gsap.to('.wrap',{//스크롤 위치가 '끝'을 지나 뒤로 이동할 때
+                    backgroundColor:color,
+                    duration:1
+                }),
+                // onLeaveBack:()=>gsap.to('.wrap',{//스크롤 위치가 '시작'을 지나 뒤로 이동할 때
+                //     backgroundColor:'#000',
+                //     duration:1
+                // })
+            });
+        });
+
+        //mouse-cursor
+        const cursorParent = document.getElementById('mouse-cursor')
+        const cursorChild = cursorParent.children[0]
+        window.addEventListener('mousemove', mousemove)
+        window.addEventListener('mousedown', mousedown)
+        window.addEventListener('mouseup', mouseup)
+
+        let scale = 1
+        let stage = ''
+        // 마우스 커서 따라 움직이기
+        let cursorX = 0, cursorY = 0
+        function mousemove(e) {
+            cursorX = e.pageX - cursorParent.offsetWidth / 2
+            cursorY = e.pageY - cursorParent.offsetHeight / 2
+            cursorParent.style.transform =
+                `translate3d(${cursorX}px, ${cursorY}px, 0)`
+            
+            switch (e.target.getAttribute('data-cursor')) {
+                case 'view':
+                    if (stage === 'view') return
+                    scale = 5
+                    stage = 'view'
+                    cursorChild.setAttribute('data-name', e.target.getAttribute('data-name'))
+                    cursorParent.className = 'cursor-text-mode'
+                    break
+                default:
+                    if (stage === '') return
+                    scale = 1
+                    stage = ''
+                    cursorChild.setAttribute('data-name', '')
+                    cursorParent.className = ''
+                    break
+            }
+            cursorChild.style.setProperty('--cursor-scale', scale)
+        }
+        function mousedown(e) { //마우스 눌렀을 때
+            scale *= 0.8
+            cursorChild.style.setProperty('--cursor-scale', scale)
+        }
+        function mouseup(e) { //마우스 떼었을 때
+            scale *= 1.25
+            cursorChild.style.setProperty('--cursor-scale', scale)
+        }
+
+        //disable
+        const windowWidth = $(window).width(); if(windowWidth <= 480) { $('.disabled-mobile').removeAttr("data-scroll-speed");}
+
+        // $(function(){
+        //     $(".skills .inner .line").find("path").each(function(i, path){
+        //     var length = path.getTotalLength();
+        //     alert(length);
+        //     });
+        // });//path의 길이 구하기
+    </script>
+</body>
+</html>
