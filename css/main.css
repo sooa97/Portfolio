@@ -34,7 +34,7 @@ button:focus {outline: none}
 /* layout */
 body {font-family: 'Fahkwang', sans-serif;}
 .wrap {width: 100%; overflow: hidden; margin: 0 auto; background: #000;}
-.has-scroll-smooth [data-scroll-container] {overflow-x: hidden;}/* 넘쳐나는 현상 해결 */
+.has-scroll-smooth [data-scroll-container] {overflow-x: hidden; position: fixed; bottom: 0; left: 0; right: 0; top: 0;}/* 넘쳐나는 현상 해결 */
 [data-scroll-container] {perspective: 1px;}/* 깜빡이는 현상 해결 */
 
 
