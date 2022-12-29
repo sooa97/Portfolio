@@ -632,8 +632,10 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
     .interest .inner .textBox .text {font-size: 15px;}
     .interest .inner {height: 4200px;}
     .interest .inner .imgWrap {height: 4200px;}
-    .interest .inner .textBox .star1 {right: 65px; top: -30px;}
-    .interest .inner .textBox .star2 {right: 45px; top: 0px;}
+    .interest .inner .textBox .star1 {right: 120px; top: -35px;}
+    .interest .inner .textBox .star2 {right: 100px; top: 0px;}
+    .interest .inner .textBox {width: 100%;}
+    .interest .inner .textBox .text {width: 80%; margin: 0 auto;}
 
     .photo .number {font-size: 140px; padding-right: 10px;}
     .photo .title {font-size: 45px;}
@@ -669,8 +671,8 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 
     .interest .number {font-size: 120px;}
     .interest .inner .textBox .title {font-size: 40px;}
-    .interest .inner .textBox .star1 {right: 40px; top: -35px;}
-    .interest .inner .textBox .star2 {right: 20px; top: -3px;}
+    .interest .inner .textBox .star1 {right: 80px; top: -35px;}
+    .interest .inner .textBox .star2 {right: 60px; top: 0px;}
 
     .photo .number {font-size: 120px;}
     .photo .button {width: 135px; height: 135px;}
