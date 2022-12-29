@@ -383,7 +383,6 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 }
 
 @media screen and (max-width:920px) {
-    .visual .inner .titBox .bottom {margin-left: -25px;}
     .visual .inner .titBox .middle {margin-left: 200px;}
 
     .introduce .inner .topBox .button {width: 130px; height: 130px;}
@@ -423,8 +422,8 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 
 @media screen and (max-width:768px) {
     .visual .inner .titBox .middle {margin-left: 150px;}
-    .visual .inner .titBox .bottom {margin-left: -15px;}
-    .visual .inner .titBox {width: 90%;}
+    .visual .inner .titBox .bottom {margin-left: -25px;}
+    .visual .inner .titBox {width: 90%; margin-top: 30px;}
 
     .introduce .inner {padding: 200px 0 100px;}
     .introduce .inner .topBox {flex-wrap: wrap; flex-direction: column-reverse;}
@@ -469,7 +468,7 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
     .innerHeader .name {font-size: 28px;}
 
     .visual .inner .titBox .middle {margin-left: 110px;}
-    .visual .inner .titBox .bottom {margin-left: -10px;}
+    .visual .inner .titBox .bottom {margin-left: -20px;}
 
     .introduce .inner {padding-top: 50px;}
 
@@ -513,13 +512,15 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
     .innerHeader {padding: 20px 15px 0;}
     .innerHeader nav .menu {margin-top: -5px;}
 
+    .menuOpen .close {top: 23px; right: 21px;}
+
     .visual .inner .titBox .middle {margin-left: 80px;}
     .visual .inner .titBox .bottom {width: 98%;}
-    .visual .inner .titBox {width: 88%;}
+    .visual .inner .titBox {width: 85%; margin-top: 20px;}
 
     .introduce .inner {padding-top: 0;}
 
-    .about .inner .img {margin-bottom: 50px;}
+    .about .inner .img {margin-bottom: 40px;}
     .about .inner .txtBox .txt {font-size: 15px;}
     .about .inner .txtBox .tit {margin-bottom: 10px; font-size: 22px;}
 
@@ -552,12 +553,12 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 }
 
 @media screen and (max-width:380px) {
-    .visual .inner .titBox .middle {margin-left: 60px;}
+    .visual .inner .titBox .middle {margin-left: 55px;}
 
     .about .inner .txtBox .tit {font-size: 20px;}
     .about .inner .txtBox .txt {font-size: 14px;}
 
-    .skills .inner .skillBox {margin-left: 50px;}
+    .skills .inner .skillBox {margin-left: 60px;}
     .skills .inner .skillBox ul li {font-size: 12px;}
     .skills .inner .skillBox .circle {width: 140px; height: 140px; line-height: 140px;}
 

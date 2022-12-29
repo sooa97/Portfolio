@@ -554,7 +554,7 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 
     .visual .inner {padding-left: 0;}
     .visual .inner .title {text-align: center; margin-left: 0; width: 100%; padding-left: 15px;}
-    .visual .inner .textBox {margin-right: 0px; text-align: center; width: 100%; float: none;  padding-left: 23px;}
+    .visual .inner .textBox {margin-right: 0px; text-align: center; width: 100%; float: none;  padding-left: 18px;}
     .visual .inner .textBox .mark1 {display: none;}
     .visual .inner .textBox .mark2 {display: none;}
 
@@ -591,15 +591,20 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 }
 
 @media screen and (max-width:480px) {
-    .innerHeader .name {font-size: 28px;}
+    .innerHeader .name {font-size: 25px;}
+    .innerHeader nav .menu span:nth-of-type(2) {font-size: 40px;}
+    .innerHeader {padding: 20px 15px 0;}
+    .innerHeader nav .menu {margin-top: -5px;}
+
+    .menuOpen .close {top: 23px; right: 21px;}
 
     .main .inner {padding-top: 100px; padding-bottom: 280px;}
-    .main .inner .img {margin-bottom: 50px;}
-    .main .inner .innerBox .txtBox .tit {margin-bottom: 10px;}
+    .main .inner .innerBox .txtBox .tit {margin-bottom: 10px; font-size: 22px;}
     .main .inner .innerBox .img {margin-bottom: 40px;}
     .main .inner .innerBox .txtBox .txt {font-size: 15px;}
 
-    .keyword .inner {padding-bottom: 50px;}
+    .keyword .inner ul {font-size: 14px;}
+    .keyword .inner {padding-bottom: 50px; margin-left: 60px;}
     .keyword .inner .tit {font-size: 45px;}
     .keyword .inner ul li {padding: 10px 25px;}
     .keyword .inner ul li:nth-child(2) {padding: 10px 25px;}
@@ -617,7 +622,7 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
     .life .inner .iconBox2 {margin: 0 auto 30px; width: 100%;}
     .life .inner .iconBox .img {float: none;}
     .life .inner .iconBox .txtBox {float: none; text-align: center; margin-left: 0;}
-    .life .inner .iconBox2 .img {float: none; margin: 0 auto;}
+    .life .inner .iconBox2 .img {float: none; margin: 0 auto; width: 90px;}
     .life .inner .iconBox2 .txtBox {float: none; text-align: center; margin-left: 0;}
     .life .inner .intern .txtBox {margin-top: 16px;}
     .life .inner .coding .txtBox {margin-top: 16px;}
@@ -627,8 +632,8 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
     .interest .inner .textBox .text {font-size: 15px;}
     .interest .inner {height: 4200px;}
     .interest .inner .imgWrap {height: 4200px;}
-    .interest .inner .textBox .star1 {right: 18%; top: -12%;}
-    .interest .inner .textBox .star2 {right: 12%; top: -1%;}
+    .interest .inner .textBox .star1 {right: 65px; top: -30px;}
+    .interest .inner .textBox .star2 {right: 45px; top: 0px;}
 
     .photo .number {font-size: 140px; padding-right: 10px;}
     .photo .title {font-size: 45px;}
@@ -647,4 +652,30 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 
     .menuOpen ul li {font-size: 12.5vw; margin-bottom: 10px;}
     .menuOpen::before {display: none;}
+}
+
+@media screen and (max-width:380px) {
+    .main .inner .innerBox .txtBox .tit {font-size: 20px;}
+    .main .inner .innerBox .txtBox .txt {font-size: 14px;}
+
+    .keyword .inner ul {font-size: 12px;}
+    .keyword .inner .tit {font-size: 40px; margin-bottom: 30px;}
+
+    .life .number {font-size: 120px;}
+    .life .inner .iconBox .txtBox .txt {font-size: 14px;}
+    .life .inner .iconBox .txtBox .year {font-size: 22px;}
+    .life .inner .iconBox2 .txtBox .year {font-size: 22px;}
+    .life .inner .titBox .tit {font-size: 40px;}
+
+    .interest .number {font-size: 120px;}
+    .interest .inner .textBox .title {font-size: 40px;}
+    .interest .inner .textBox .star1 {right: 40px; top: -35px;}
+    .interest .inner .textBox .star2 {right: 20px; top: -3px;}
+
+    .photo .number {font-size: 120px;}
+    .photo .button {width: 135px; height: 135px;}
+    .photo .button a {line-height: 135px;}
+    .photo .title {font-size: 40px;}
+
+    .contact .inner .star {top: 140px;}
 }
