@@ -121,10 +121,10 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 }
 
 /* section.visual */
-.visual {width: 100%;}
-.visual .inner {width: 100%; padding: 250px 0 215px 166px; overflow: hidden;}
+.visual {width: 100%; height: 100vh; position: relative;}
+.visual .inner {width: 100%; padding-left: 200px; overflow: hidden; position: absolute; top: 50%; transform: translateY(-50%);}
 .visual .inner .title {font-family: 'zephyr'; font-size: 17.19vw; font-weight: inherit; perspective: 500px; transform-origin: 50% 50%; line-height: 1; width: 100%; margin-left: 50px;}
-.visual .inner .textBox {float: right; position: relative; perspective: 500px; transform-origin: 50% 50%; margin-right: 300px; margin-top: 30px;}
+.visual .inner .textBox {float: right; position: relative; perspective: 500px; transform-origin: 50% 50%; margin-right: 350px; margin-top: 20px;}
 .visual .inner .textBox .text {font-family: 'zephyr'; font-size: 3.02vw;}
 .visual .inner .textBox .mark1 {width: 2.08vw; position: absolute; top: -0.16vw; left: -3.28vw;}
 .visual .inner .textBox .mark1 img {width: 100%;}
@@ -300,8 +300,8 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 
 @media screen and (max-width:1420px) {
     .visual .inner {padding-left: 110px;}
-    .visual .inner .textBox {margin-right: 180px;}
-    .visual .inner .title {font-size: 21vw;}
+    .visual .inner .textBox {margin-right: 190px;}
+    .visual .inner .title {font-size: 19.5vw;}
     .visual .inner .textBox .text {font-size: 3.52vw;}
     .visual .inner .textBox .mark2 {width: 2.08vw; position: absolute; bottom: 0.62vw; right: 9.5vw;}
 
@@ -331,9 +331,6 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 }
 @media screen and (max-width:1280px) {
     .innerHeader .name {font-size: 32px;}
-
-    .visual .inner {padding-left: 80px; padding-top: 275px;}
-    .visual .inner .textBox {margin-right: 130px;}
 
     .keyword .inner {margin-left: 140px;}
     .keyword .inner .tit {font-size: 70px;}
@@ -403,8 +400,8 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
     .menuOpen ul li {font-size: 85px; margin-bottom: 30px;}
     .menuOpen::before {width: 600px; height: 600px;}
 
-    .visual .inner {padding-left: 60px; padding-top: 300px;}
-    .visual .inner .textBox {margin-right: 105px;}
+    .visual .inner {padding-left: 80px;}
+    .visual .inner .textBox {margin-right: 150px;}
     .visual .inner .textBox .text {font-size: 4.2vw;}
     .visual .inner .textBox .mark1 {width: 3vw; left: -4.8vw;}
     .visual .inner .textBox .mark2 {width: 3vw; right: 10.7vw;}
@@ -448,9 +445,6 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 }
 
 @media screen and (max-width:920px) {
-    .visual {height: 100vh; position: relative;}
-    .visual .inner {position: absolute; top: 50%; transform: translateY(-50%); padding-top: 100px; padding-bottom: 100px;}
-
     .main .inner .innerBox .star1 {display: none;}
     .main .inner .innerBox .star2 {display: none;}
 
@@ -556,7 +550,7 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 @media screen and (max-width:600px) {
     .innerHeader .name {font-size: 28px;}
 
-    .visual .inner {padding-left: 0;}
+    .visual .inner {padding-left: 0; overflow: visible;}
     .visual .inner .title {text-align: center; margin-left: 0; width: 100%; padding-left: 15px;}
     .visual .inner .textBox {margin-right: 0px; text-align: center; width: 100%; float: none;  padding-left: 18px;}
     .visual .inner .textBox .mark1 {display: none;}
@@ -618,13 +612,13 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
     .life .inner {margin-left: 0;}
     .life .inner .titBox {margin: 0 auto; text-align: center; width: 80%;}
     .life .inner .titBox .tit {font-size: 45px;}
-    .life .inner .iconBox .txtBox .year {font-size: 24px;}
-    .life .inner .iconBox2 .txtBox .year {font-size: 24px;}
+    .life .inner .iconBox .txtBox .year {font-size: 22px;}
+    .life .inner .iconBox2 .txtBox .year {font-size: 22px;}
     .life .inner .iconBox .txtBox .txt {font-size: 15px;}
     .life .inner .iconBox2 .txtBox .txt {font-size: 15px;}
     .life .inner .iconBox {margin: 0 auto 30px; width: 100%;}
     .life .inner .iconBox2 {margin: 0 auto 30px; width: 100%;}
-    .life .inner .iconBox .img {float: none;}
+    .life .inner .iconBox .img {float: none; width: 90px;}
     .life .inner .iconBox .txtBox {float: none; text-align: center; margin-left: 0;}
     .life .inner .iconBox2 .img {float: none; margin: 0 auto; width: 90px;}
     .life .inner .iconBox2 .txtBox {float: none; text-align: center; margin-left: 0;}
@@ -637,7 +631,7 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
     .interest .inner {height: 4200px;}
     .interest .inner .imgWrap {height: 4200px;}
     .interest .inner .textBox .star1 {right: 120px; top: -35px;}
-    .interest .inner .textBox .star2 {right: 100px; top: 0px;}
+    .interest .inner .textBox .star2 {right: 95px; top: -5px;}
     .interest .inner .textBox {width: 100%;}
     .interest .inner .textBox .text {width: 80%; margin: 0 auto;}
 
@@ -670,8 +664,6 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 
     .life .number {font-size: 120px;}
     .life .inner .iconBox .txtBox .txt {font-size: 14px;}
-    .life .inner .iconBox .txtBox .year {font-size: 22px;}
-    .life .inner .iconBox2 .txtBox .year {font-size: 22px;}
     .life .inner .titBox .tit {font-size: 40px;}
 
     .interest .number {font-size: 120px;}

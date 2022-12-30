@@ -519,9 +519,9 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 
     .menuOpen .close {top: 23px; right: 21px;}
 
-    .visual .inner .titBox .middle {margin-left: 90px;}
+    .visual .inner .titBox .middle {margin-left: 85px;}
     .visual .inner .titBox .bottom {width: 98%;}
-    .visual .inner .titBox {width: 85%; margin-top: 15px;}
+    .visual .inner .titBox {width: 82%; margin-top: 15px;}
     .visual .inner .titBox {font-size: 15vw;}
 
     .introduce .inner {padding-top: 0;}
@@ -561,7 +561,7 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 }
 
 @media screen and (max-width:380px) {
-    .visual .inner .titBox .middle {margin-left: 70px;}
+    .visual .inner .titBox .middle {margin-left: 65px;}
     .visual .inner .titBox .bottom {margin-left: -15px;}
 
     .about .inner .txtBox .tit {font-size: 20px;}
