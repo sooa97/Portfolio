@@ -340,7 +340,10 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
     .innerHeader nav .menu .hide {display: none;}
     .innerHeader nav .menu span:nth-of-type(2) {display: block; font-size: 45px; color: #fff; text-align: right;}
     .innerHeader nav .menu:before {display: none;}
+
     .menuOpen .close {top: 39px; right: 33px;}
+    .menuOpen ul li {font-size: 85px; margin-bottom: 30px;}
+    .menuOpen::before {width: 600px; height: 600px;}
 
     .visual .inner .titBox {margin-top: 40px;}
     .visual .inner .titBox .middle {margin-left: 200px;}
@@ -419,9 +422,6 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
     .contact .txtBox .titBox .number {top: 28px; left: 28px;}
     .contact .txtBox .star {width: 55px;}
     .contact .txtBox .star img {width: 100%;}
-
-    .menuOpen ul li {font-size: 85px; margin-bottom: 30px;}
-    .menuOpen::before {width: 600px; height: 600px;}
 }
 
 
@@ -461,8 +461,8 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
     .contact .txtBox {padding-right: 30px;}
     .contact .txtBox .star {top: 70px; right: 30px; width: 50px;}
     
-    .menuOpen ul li {font-size: 75px; margin-bottom: 25px;}
-    .menuOpen::before {width: 500px; height: 500px;}
+    .menuOpen ul li {font-size: 70px; margin-bottom: 25px;}
+    .menuOpen::before {width: 450px; height: 450px;}
 }
 
 @media screen and (max-width:665px) {
@@ -537,6 +537,7 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 
     .gallery .number {font-size: 140px; margin-right: 10px;}
     .gallery .txtBox .tit {font-size: 6.5vw;}
+    .gallery .txtBox .star {width: 35px;}
     
     .interest .inner {padding-top: 120vh;}
     .interest .inner .number {font-size: 140px; margin-left: 20px;}
