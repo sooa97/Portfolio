@@ -301,9 +301,9 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 @media screen and (max-width:1280px) {
     .innerHeader .name {font-size: 32px;}
 
-    .visual .inner .titBox {font-size: 17vw;}
+    .visual .inner .titBox {font-size: 16vw;}
     .visual .inner .titBox .top {line-height: 1;}
-    .visual .inner .titBox .middle {display: block; line-height: 1; margin-left: 240px;}
+    .visual .inner .titBox .middle {display: block; line-height: 1; margin-left: 260px;}
     .visual .inner .titBox .bottom {line-height: 1; margin-left: -65px;}
     .visual .inner .titBox .hide {display: none;}
 
@@ -387,7 +387,8 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 }
 
 @media screen and (max-width:920px) {
-    .visual .inner .titBox .middle {margin-left: 200px;}
+    .visual .inner .titBox .middle {margin-left: 180px;}
+    .visual .inner .titBox .bottom {margin-left: -38px;}
 
     .introduce .inner .topBox .button {width: 130px; height: 130px;}
     .introduce .inner .topBox .button a {line-height: 130px; font-size: 13px;}
@@ -427,7 +428,7 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 @media screen and (max-width:768px) {
     .visual .inner .titBox .middle {margin-left: 150px;}
     .visual .inner .titBox .bottom {margin-left: -25px;}
-    .visual .inner .titBox {width: 90%; margin-top: 30px;}
+    .visual .inner .titBox {width: 90%; margin-top: 25px;}
 
     .introduce .inner {padding: 200px 0 100px;}
     .introduce .inner .topBox {flex-wrap: wrap; flex-direction: column-reverse;}
@@ -458,7 +459,7 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
     .contact .txtBox .titBox .number {top: 25px; left: 15px;}
     .contact .txtBox .titBox .tit {margin-top: 30px;}
     .contact .txtBox {padding-right: 30px;}
-    .contact .txtBox .star {top: 60px; right: 30px;}
+    .contact .txtBox .star {top: 70px; right: 30px; width: 50px;}
     
     .menuOpen ul li {font-size: 75px; margin-bottom: 25px;}
     .menuOpen::before {width: 500px; height: 500px;}
@@ -520,8 +521,8 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 
     .visual .inner .titBox .middle {margin-left: 90px;}
     .visual .inner .titBox .bottom {width: 98%;}
-    .visual .inner .titBox {width: 85%; margin-top: 20px;}
-    .visual .inner .titBox {font-size: 16vw;}
+    .visual .inner .titBox {width: 85%; margin-top: 15px;}
+    .visual .inner .titBox {font-size: 15vw;}
 
     .introduce .inner {padding-top: 0;}
 
@@ -549,16 +550,18 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
     .contact .info .phone .phoneNumber {font-size: 14px;}
     .contact .info .mail .mailAddress {font-size: 16px;}
     .contact .txtBox .txt {font-size: 14px;}
-    .contact .txtBox .star {top: 25px;}
+    .contact .txtBox .star {top: 50px;width: 30px;}
     .contact .txtBox {margin-bottom: 50px;}
     .contact .txtBox .titBox .tit {margin-top: 50px;}
+    .contact .inner {padding-bottom: 20px;}
 
     .menuOpen ul li {font-size: 12.5vw; margin-bottom: 10px;}
     .menuOpen::before {display: none;}
 }
 
 @media screen and (max-width:380px) {
-    .visual .inner .titBox .middle {margin-left: 65px;}
+    .visual .inner .titBox .middle {margin-left: 70px;}
+    .visual .inner .titBox .bottom {margin-left: -15px;}
 
     .about .inner .txtBox .tit {font-size: 20px;}
     .about .inner .txtBox .txt {font-size: 14px;}
