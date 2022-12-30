@@ -122,11 +122,11 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 
 /* section.visual */
 .visual {width: 100%; height: 100vh; position: relative;}
-.visual .inner {width: 100%; padding-left: 160px; position: absolute; top: 50%; transform: translateY(-50%); margin-top: 60px;}
-.visual .inner .titBox {font-family: 'zephyr'; font-size: 17.19vw;}
-.visual .inner .titBox .top {line-height: 1; font-weight: inherit; perspective: 500px; transform-origin: 50% 50%; width: 100%; margin-left: 20px;}
+.visual .inner {width: 100%; padding-left: 9%; position: absolute; top: 50%; transform: translateY(-50%); margin-top: 60px;}
+.visual .inner .titBox {font-family: 'zephyr'; font-size: 17.19vw; width: 100%;}
+.visual .inner .titBox .top {line-height: 1; font-weight: inherit; perspective: 500px; transform-origin: 50% 50%;}
 .visual .inner .titBox .top span.size {font-size: 11.46vw; display: inline-block; transform-style: preserve-3d;}
-.visual .inner .titBox .bottom {text-align: right; line-height: 1; font-weight: inherit; perspective: 500px; transform-origin: 50% 50%; margin-right: 260px;}
+.visual .inner .titBox .bottom {text-align: right; line-height: 1; font-weight: inherit; perspective: 500px; transform-origin: 50% 50%; margin-right: 13%;}
 .visual .inner .titBox span {display: inline-block; transform-style: preserve-3d;}
 @keyframes spin {
     0% {transform: rotateX(-90deg) translateY(150px); opacity: 0;}
@@ -214,8 +214,6 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 }
 
 @media screen and (max-width:1420px) {
-    .visual .inner {padding-left: 110px;}
-    .visual .inner .titBox .bottom {margin-right: 170px;}
     .visual .inner .titBox {font-size: 18vw;}
 
     .coding .inner {padding-top: 450px;}
@@ -252,7 +250,6 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
     .innerHeader nav .menu:before {display: none;}
     .menuOpen .close {top: 39px; right: 33px;}
 
-    .visual .inner .titBox .top {margin-left: 10px;}
     .visual .inner .titBox .top span.size {font-size: 9.5vw;}
     .visual .inner {margin-top: 40px;}
     
@@ -281,10 +278,6 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 @media screen and (max-width:920px) {
     .menuOpen ul li {font-size: 85px; margin-bottom: 30px;}
     .menuOpen::before {width: 600px; height: 600px;}
-
-    .visual .inner .titBox .top {margin-left: 0px;}
-    .visual .inner {padding-left: 95px;}
-    .visual .inner .titBox .bottom {margin-right: 140px;}
     
     .coding .inner .tablet .list li .txt {font-size: 12px;}
     .coding .inner .tablet .list li .tit {font-size: 28px;}
@@ -297,9 +290,8 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
     .menuOpen ul li {font-size: 75px; margin-bottom: 25px;}
     .menuOpen::before {width: 500px; height: 500px;}
 
-    .visual .inner {padding-left: 80px;}
-    .visual .inner .titBox .bottom {margin-right: 120px;}
-    .visual .inner {margin-top: 30px;}
+    .visual .inner {width: 97%; padding-left: 11%;}
+    .visual .inner .titBox .bottom {margin-right: 14%;}
 
     .coding .inner .tablet {width: 85%;}
     .coding .inner .tablet .list {width: 45%;}
@@ -327,7 +319,6 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
     .menuOpen ul li {font-size: 60px; margin-bottom: 20px;}
     .menuOpen::before {width: 400px; height: 400px;}
 
-    .visual .inner {padding-left: 75px;}
     .visual .inner .titBox {font-size: 17vw;}
 
     .coding .inner .tablet .list li br {display: block;}
@@ -350,11 +341,8 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 
     .menuOpen ul li {font-size: 12.5vw; margin-bottom: 10px;}
     .menuOpen::before {display: none;}
-    
-    .visual .inner {padding-left: 60px;}
-    .visual .inner .titBox .bottom {margin-right: 90px;}
+
     .visual .inner {margin-top: 20px;}
-    .visual .inner .titBox .top span.size {font-size: 8.5vw;}
 
     .coding .inner .tablet .list li {margin-bottom: 60px;}
     .coding .inner {padding-top: 200px;}
@@ -381,6 +369,4 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 @media screen and (max-width:380px) {
     .ncs .inner .textBox .txt {font-size: 14px;}
     .ncs .inner .textBox .tit {font-size: 45px;}
-
-    .visual .inner {margin-top: 10px; padding-left: 55px;}
 }

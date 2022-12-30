@@ -123,7 +123,7 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 /* section.visual */
 .visual {width: 100%; height: 100vh; position: relative;}
 .visual .inner {width: 100%; padding-left: 200px; overflow: hidden; position: absolute; top: 50%; transform: translateY(-50%);}
-.visual .inner .title {font-family: 'zephyr'; font-size: 17.19vw; font-weight: inherit; perspective: 500px; transform-origin: 50% 50%; line-height: 1; width: 100%; margin-left: 50px;}
+.visual .inner .title {font-family: 'zephyr'; font-size: 17.19vw; font-weight: inherit; perspective: 500px; transform-origin: 50% 50%; line-height: 1; width: 100%; margin-left: 50px; margin-top: 50px;}
 .visual .inner .textBox {float: right; position: relative; perspective: 500px; transform-origin: 50% 50%; margin-right: 350px; margin-top: 20px;}
 .visual .inner .textBox .text {font-family: 'zephyr'; font-size: 3.02vw;}
 .visual .inner .textBox .mark1 {width: 2.08vw; position: absolute; top: -0.16vw; left: -3.28vw;}
@@ -551,8 +551,8 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
     .innerHeader .name {font-size: 28px;}
 
     .visual .inner {padding-left: 0; overflow: visible;}
-    .visual .inner .title {text-align: center; margin-left: 0; width: 100%; padding-left: 13px;}
-    .visual .inner .textBox {margin-right: 0px; text-align: center; width: 100%; float: none;  padding-left: 18px;}
+    .visual .inner .title {text-align: center; margin-left: 0; width: 100%; padding-left: 2%;}
+    .visual .inner .textBox {margin-right: 0px; text-align: center; width: 100%; float: none;  padding-left: 5%;}
     .visual .inner .textBox .mark1 {display: none;}
     .visual .inner .textBox .mark2 {display: none;}
 
@@ -656,6 +656,9 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 }
 
 @media screen and (max-width:380px) {
+    .visual .inner .title {padding-left: 1%;}
+    .visual .inner .textBox {padding-left: 6%;}
+
     .main .inner .innerBox .txtBox .tit {font-size: 20px;}
     .main .inner .innerBox .txtBox .txt {font-size: 14px;}
 
