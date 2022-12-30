@@ -253,7 +253,8 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
     .menuOpen .close {top: 39px; right: 33px;}
 
     .visual .inner .titBox .top {margin-left: 10px;}
-    .visual .inner .titBox .top span.size {font-size: 8.5vw;}
+    .visual .inner .titBox .top span.size {font-size: 9.5vw;}
+    .visual .inner {margin-top: 40px;}
     
     .coding .inner {padding-top: 300px;}
     .coding .inner .textWrap {display: none;}
@@ -282,8 +283,8 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
     .menuOpen::before {width: 600px; height: 600px;}
 
     .visual .inner .titBox .top {margin-left: 0px;}
-    .visual .inner {padding-left: 85px;}
-    .visual .inner .titBox .bottom {margin-right: 120px;}
+    .visual .inner {padding-left: 95px;}
+    .visual .inner .titBox .bottom {margin-right: 140px;}
     
     .coding .inner .tablet .list li .txt {font-size: 12px;}
     .coding .inner .tablet .list li .tit {font-size: 28px;}
@@ -296,8 +297,9 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
     .menuOpen ul li {font-size: 75px; margin-bottom: 25px;}
     .menuOpen::before {width: 500px; height: 500px;}
 
-    .visual .inner {padding-left: 60px;}
-    .visual .inner .titBox .bottom {margin-right: 85px;}
+    .visual .inner {padding-left: 80px;}
+    .visual .inner .titBox .bottom {margin-right: 120px;}
+    .visual .inner {margin-top: 30px;}
 
     .coding .inner .tablet {width: 85%;}
     .coding .inner .tablet .list {width: 45%;}
@@ -325,6 +327,7 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
     .menuOpen ul li {font-size: 60px; margin-bottom: 20px;}
     .menuOpen::before {width: 400px; height: 400px;}
 
+    .visual .inner {padding-left: 75px;}
     .visual .inner .titBox {font-size: 17vw;}
 
     .coding .inner .tablet .list li br {display: block;}
@@ -348,8 +351,10 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
     .menuOpen ul li {font-size: 12.5vw; margin-bottom: 10px;}
     .menuOpen::before {display: none;}
     
-    .visual .inner {padding-left: 45px;}
-    .visual .inner .titBox .bottom {margin-right: 65px;}
+    .visual .inner {padding-left: 60px;}
+    .visual .inner .titBox .bottom {margin-right: 90px;}
+    .visual .inner {margin-top: 20px;}
+    .visual .inner .titBox .top span.size {font-size: 8.5vw;}
 
     .coding .inner .tablet .list li {margin-bottom: 60px;}
     .coding .inner {padding-top: 200px;}
@@ -376,4 +381,6 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 @media screen and (max-width:380px) {
     .ncs .inner .textBox .txt {font-size: 14px;}
     .ncs .inner .textBox .tit {font-size: 45px;}
+
+    .visual .inner {margin-top: 10px; padding-left: 55px;}
 }
