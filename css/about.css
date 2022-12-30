@@ -122,9 +122,9 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 
 /* section.visual */
 .visual {width: 100%; height: 100vh; position: relative;}
-.visual .inner {width: 100%; padding-left: 200px; overflow: hidden; position: absolute; top: 50%; transform: translateY(-50%);}
-.visual .inner .title {font-family: 'zephyr'; font-size: 17.19vw; font-weight: inherit; perspective: 500px; transform-origin: 50% 50%; line-height: 1; width: 100%; margin-left: 50px; margin-top: 50px;}
-.visual .inner .textBox {float: right; position: relative; perspective: 500px; transform-origin: 50% 50%; margin-right: 350px; margin-top: 20px;}
+.visual .inner {width: 100%; padding-left: 13%; overflow: hidden; position: absolute; top: 50%; transform: translateY(-50%);}
+.visual .inner .title {font-family: 'zephyr'; font-size: 17vw; font-weight: inherit; perspective: 500px; transform-origin: 50% 50%; line-height: 1; width: 100%;}
+.visual .inner .textBox {float: right; position: relative; perspective: 500px; transform-origin: 50% 50%; margin-right: 21%; margin-top: 20px;}
 .visual .inner .textBox .text {font-family: 'zephyr'; font-size: 3.02vw;}
 .visual .inner .textBox .mark1 {width: 2.08vw; position: absolute; top: -0.16vw; left: -3.28vw;}
 .visual .inner .textBox .mark1 img {width: 100%;}
@@ -299,11 +299,9 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 }
 
 @media screen and (max-width:1420px) {
-    .visual .inner {padding-left: 110px;}
-    .visual .inner .textBox {margin-right: 190px;}
-    .visual .inner .title {font-size: 19.5vw;}
-    .visual .inner .textBox .text {font-size: 3.52vw;}
+    .visual .inner .textBox .text {font-size: 3.5vw;}
     .visual .inner .textBox .mark2 {width: 2.08vw; position: absolute; bottom: 0.62vw; right: 9.5vw;}
+    .visual .inner .textBox {margin-right: 20%;}
 
     .main .inner .line {top: 11%;}
     .main .inner .innerBox .txtBox {width: 35%;}
@@ -400,11 +398,8 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
     .menuOpen ul li {font-size: 85px; margin-bottom: 30px;}
     .menuOpen::before {width: 600px; height: 600px;}
 
-    .visual .inner {padding-left: 80px;}
-    .visual .inner .textBox {margin-right: 150px;}
-    .visual .inner .textBox .text {font-size: 4.2vw;}
-    .visual .inner .textBox .mark1 {width: 3vw; left: -4.8vw;}
-    .visual .inner .textBox .mark2 {width: 3vw; right: 10.7vw;}
+    .visual .inner {padding-left: 15%;}
+    .visual .inner .textBox {margin-right: 23%;}
 
     .main .inner .innerBox .star1 {top: -3%; left: 12%;}
     .main .inner .innerBox .star2 {bottom: 34%; right: 12%;}
@@ -445,6 +440,8 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 }
 
 @media screen and (max-width:920px) {
+    .visual .inner .textBox .mark1 {top: -0.5vw;}
+
     .main .inner .innerBox .star1 {display: none;}
     .main .inner .innerBox .star2 {display: none;}
 
@@ -495,8 +492,8 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 }
 
 @media screen and (max-width:768px) {
-    .visual .inner {padding-left: 40px;}
-    .visual .inner .textBox {margin-right: 80px;} 
+    .visual .inner .textBox .mark1 {top: -0.8vw;}
+    .visual .inner .textBox .mark2 {bottom: 0.3vw;}
 
     .keyword .inner .tit {font-size: 60px;}
 
@@ -551,8 +548,8 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
     .innerHeader .name {font-size: 28px;}
 
     .visual .inner {padding-left: 0; overflow: visible;}
-    .visual .inner .title {text-align: center; margin-left: 0; width: 100%; padding-left: 2%;}
-    .visual .inner .textBox {margin-right: 0px; text-align: center; width: 100%; float: none;  padding-left: 5%;}
+    .visual .inner .title {text-align: center; margin-left: 0; width: 100%; padding-left: 2.5%;}
+    .visual .inner .textBox {margin-right: 0px; text-align: center; width: 100%; float: none;  padding-left: 3.5%;}
     .visual .inner .textBox .mark1 {display: none;}
     .visual .inner .textBox .mark2 {display: none;}
 
@@ -656,8 +653,8 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 }
 
 @media screen and (max-width:380px) {
-    .visual .inner .title {padding-left: 1%;}
-    .visual .inner .textBox {padding-left: 6%;}
+    .visual .inner .title {padding-left: 3%;}
+    .visual .inner .textBox {padding-left: 4%;}
 
     .main .inner .innerBox .txtBox .tit {font-size: 20px;}
     .main .inner .innerBox .txtBox .txt {font-size: 14px;}

@@ -123,9 +123,9 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 /* section.visual */
 .visual {width: 100%; height: 100vh; position: relative;}
 .visual .inner {width: 100%; padding-left: 9%; position: absolute; top: 50%; transform: translateY(-50%); margin-top: 60px;}
-.visual .inner .titBox {font-family: 'zephyr'; font-size: 17.19vw; width: 100%;}
+.visual .inner .titBox {font-family: 'zephyr'; font-size: 16vw; width: 100%;}
 .visual .inner .titBox .top {line-height: 1; font-weight: inherit; perspective: 500px; transform-origin: 50% 50%;}
-.visual .inner .titBox .top span.size {font-size: 11.46vw; display: inline-block; transform-style: preserve-3d;}
+.visual .inner .titBox .top span.size {font-size: 10vw; display: inline-block; transform-style: preserve-3d;}
 .visual .inner .titBox .bottom {text-align: right; line-height: 1; font-weight: inherit; perspective: 500px; transform-origin: 50% 50%; margin-right: 13%;}
 .visual .inner .titBox span {display: inline-block; transform-style: preserve-3d;}
 @keyframes spin {
@@ -214,8 +214,6 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 }
 
 @media screen and (max-width:1420px) {
-    .visual .inner .titBox {font-size: 18vw;}
-
     .coding .inner {padding-top: 450px;}
     .coding .inner .textWrap {padding-bottom: 100px;}
     .coding .inner .textWrap .textBox .tit {font-size: 80px;}
@@ -250,8 +248,8 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
     .innerHeader nav .menu:before {display: none;}
     .menuOpen .close {top: 39px; right: 33px;}
 
-    .visual .inner .titBox .top span.size {font-size: 9.5vw;}
-    .visual .inner {margin-top: 40px;}
+    .visual .inner {margin-top: 40px; width: 97%; padding-left: 11%;}
+    .visual .inner .titBox .bottom {margin-right: 14%;}
     
     .coding .inner {padding-top: 300px;}
     .coding .inner .textWrap {display: none;}
@@ -290,9 +288,6 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
     .menuOpen ul li {font-size: 75px; margin-bottom: 25px;}
     .menuOpen::before {width: 500px; height: 500px;}
 
-    .visual .inner {width: 97%; padding-left: 11%;}
-    .visual .inner .titBox .bottom {margin-right: 14%;}
-
     .coding .inner .tablet {width: 85%;}
     .coding .inner .tablet .list {width: 45%;}
     .coding .inner .tablet .list.first {margin-top: 0;}
@@ -318,8 +313,6 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 
     .menuOpen ul li {font-size: 60px; margin-bottom: 20px;}
     .menuOpen::before {width: 400px; height: 400px;}
-
-    .visual .inner .titBox {font-size: 17vw;}
 
     .coding .inner .tablet .list li br {display: block;}
     .coding .inner .tablet .list li span {display: none;}

@@ -123,7 +123,7 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 /* section.visual */
 .visual {width: 100%; height: 100vh;}
 .visual .inner {width: 100%; height: 100vh;  position: relative;}
-.visual .inner .titBox {font-family: 'zephyr'; font-size: 17.19vw; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); margin-top: 60px; width: 85%;}
+.visual .inner .titBox {font-family: 'zephyr'; font-size: 16vw; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); margin-top: 60px; width: 85%;}
 .visual .inner .titBox .top {line-height: 1; font-weight: inherit; perspective: 500px; transform-origin: 50% 50%; margin-left: 30px;}
 .visual .inner .titBox .bottom {line-height: 1; font-weight: inherit; text-align: right; perspective: 500px; transform-origin: 50% 50%; margin-right: -4%;}
 .visual .inner .titBox span {display: inline-block; transform-style: preserve-3d;}
@@ -138,8 +138,10 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 .title {width: 100%;}
 .title .inner {display: flex; width: 100%;}
 .title .txtBox {display: inline-block; position: relative; margin: 300px auto 250px; opacity: 0; align-items: center;}
-.title .txtBox .tit {font-family: 'zephyr'; font-size: 80px; font-weight: inherit; display: inline-block;}
+.title .txtBox .tit {font-family: 'zephyr'; font-size: 4.17vw; font-weight: inherit; display: inline-block;}
+.title .txtBox .tit br.mo {display: none;}
 .title .txtBox .bottomTxt {text-align: right; font-family: 'Noto Sans KR',sans-serif; color: #707070; font-size: 18px;}
+.title .txtBox .bottomTxt br.mo {display: none;}
 .title .txtBox .star {position: absolute; top: -30px; left: -60px;}
 
 /* locomotive animataion */
@@ -255,10 +257,23 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 .contact .txtBox .titBox .tit span.ani {animation: spin; animation-duration: 0.9s; animation-timing-function: ease-in-out;}
 
 /* responsive */
+@media screen and (max-width:1420px) {
+    .title .txtBox .bottomTxt {font-size: 16px;}
+    .title .txtBox {margin: 250px auto}
+    .process .inner {padding-top: 250px;}
+}
+
 @media screen and (max-width:1280px) {
     .innerHeader .name {font-size: 32px;}
 
     .visual .inner .titBox {margin-top: 50px;}
+
+    .title .txtBox .star {width: 50px; left: -50px;}
+    .title .txtBox .star img {width: 100%;}
+    .title .txtBox {margin: 200px auto}
+
+    .process .inner {padding-top: 180px;}
+    .process .inner .innerBox {margin-bottom: 300px;}
 }
 
 @media screen and (max-width:1080px) {
@@ -269,9 +284,18 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
     .innerHeader nav .menu:before {display: none;}
     .menuOpen .close {top: 39px; right: 33px;}
 
-    .visual .inner .titBox {margin-top: 40px; width: 80%; font-size: 16.19vw;}
+    .visual .inner .titBox {margin-top: 40px; width: 80%;}
     .visual .inner .titBox .top {margin-left: 10px;}
     .visual .inner .titBox .bottom {margin-right: -4%;}
+
+    .title .txtBox .bottomTxt br.mo {display: block;}
+    .title .txtBox {margin: 150px auto}
+
+    .process .inner .innerBox .tit {font-size: 34px;}
+    .process .inner .innerBox .txt {font-size: 18px;}
+    .process .inner .innerBox {margin-bottom: 200px;}
+    .process .inner .innerBox .img {border-radius: 30px;}
+    .process .inner ul {width: 83%;}
 }
 
 @media screen and (max-width:1024px) {
@@ -281,6 +305,9 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 @media screen and (max-width:920px) {
     .menuOpen ul li {font-size: 85px; margin-bottom: 30px;}
     .menuOpen::before {width: 600px; height: 600px;}
+
+    .process .inner .innerBox .tit {font-size: 30px;}
+    .process .inner .innerBox .txt {font-size: 16px;}
 }
 
 @media screen and (max-width:768px) {
@@ -288,6 +315,21 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
     .menuOpen::before {width: 500px; height: 500px;}
 
     .visual .inner .titBox {margin-top: 30px;}
+
+    .title .txtBox .star {width: 40px; left: -40px; top: -25px;}
+    .title .txtBox .bottomTxt {display: none;}
+    .title .txtBox .tit br.mo {display: block;}
+    .title .txtBox .tit { text-align: right; font-size: 5.5vw;}
+    .title .txtBox {margin: 100px 50px 150px 0;}
+    .title .inner {text-align: right; display: block;}
+
+    .process .inner .innerBox .tit {font-size: 28px;}
+    .process .inner .innerBox .textWrap {width: 50%;}
+    .process .inner .innerBox {flex-wrap: wrap; margin-bottom: 20px;}
+    .process .inner .innerBox .img {width: 60%;}
+    .process .inner .innerBox.right {flex-direction: column-reverse;}
+    .process .inner .innerBox.left .textWrap .textBox {position: static; transform: none;}
+    .process .inner .innerBox.right .textWrap .textBox {position: static; transform: none; text-align: left;}
 }
 
 @media screen and (max-width:600px) {
@@ -295,6 +337,8 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 
     .menuOpen ul li {font-size: 60px; margin-bottom: 20px;}
     .menuOpen::before {width: 400px; height: 400px;}
+
+    .title .txtBox .tit {font-size: 6vw;}    
 }
 
 
@@ -308,4 +352,7 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
     .menuOpen::before {display: none;}
 
     .visual .inner .titBox {margin-top: 15px;}
+
+    .title .txtBox .star {width: 30px; top: -20px; left: -30px;}
+    .title .txtBox {margin: 50px 30px 100px 0;}
 }
