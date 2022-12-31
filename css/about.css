@@ -10,7 +10,7 @@
     font-style: normal;
 };
 @font-face {
-    font-family: 'culture';
+    font-family: 'cultureregular';
     src:url(../font/culture-webfont.woff) format('woff'),
         url(../font/culture-webfont.ttf) format('truetype'),
         url(../font/culture-webfont.svg) format('svg');
