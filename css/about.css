@@ -1,6 +1,7 @@
 @charset "utf-8";
 @import url('https://fonts.googleapis.com/css2?family=Fahkwang:ital@0;1&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@300;400;500&display=swap');
 @font-face {
     font-family: 'zephyr';
     src:url(../font/zephyr-webfont.woff) format('woff'),
@@ -10,7 +11,7 @@
     font-style: normal;
 };
 @font-face {
-    font-family: 'cultureregular';
+    font-family: 'culture';
     src:url(../font/culture-webfont.woff) format('woff'),
         url(../font/culture-webfont.ttf) format('truetype'),
         url(../font/culture-webfont.svg) format('svg');
@@ -39,7 +40,7 @@ body {font-family: 'Fahkwang', sans-serif;}
 /* header */
 header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff; mix-blend-mode: difference;}
 .innerHeader {width: 100%; height: 100%; padding: 40px 34px 0; box-sizing: border-box; overflow: hidden;}
-.innerHeader .name {float: left; font-size: 40px; font-family: 'cultureregular'; line-height: 0.9;}
+.innerHeader .name {float: left; font-size: 40px; font-family: 'Cormorant Infant', serif; line-height: 0.9;}
 .innerHeader nav {float: right; font-size: 16px;}
 .innerHeader nav .menu span:nth-of-type(2) {display: none;}
 .innerHeader nav .menu {width: 90px; height: 40px; border: 1px solid #fff; border-radius: 50px; cursor: pointer; line-height: 40px; text-align: center; position: relative; transition: transform 0.5s; overflow: hidden;}
@@ -168,7 +169,7 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 
 /* section.life */
 .life {width: 100%;}
-.life .number {font-family: 'culture'; font-size: 270px; text-align: right; padding: 180px 160px 280px 0; letter-spacing: 15px;}
+.life .number {font-family: 'Cormorant Infant', serif; font-size: 270px; text-align: right; padding: 180px 160px 280px 0; letter-spacing: 10px; font-weight: 300;}
 .life .inner {width: 100%; position: relative; margin-bottom: 200px;}
 .life .inner .titBox {position: absolute; top: -50px; left: 220px;}
 .life .inner .titBox .tit {font-family: 'zephyr'; font-size: 85px; font-weight: inherit; line-height: 370px;}
@@ -204,7 +205,7 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 
 /* section.interest */
 .interest {width: 100%;}
-.interest .number {font-family: 'culture'; font-size: 270px; letter-spacing: 15px; margin-left: 160px;}
+.interest .number {font-family: 'Cormorant Infant', serif; font-size: 270px; letter-spacing: 10px; margin-left: 160px; letter-spacing: 10px; font-weight: 300;}
 .interest .inner {width: 100%; height: 5000px; position: relative;}
 .interest .inner .textWrap {position: relative; height: 100vh;}
 .interest .inner .textBox {width: 660px; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); opacity: 0;}
@@ -228,7 +229,7 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 
 /* section.photo */
 .photo {width: 100%;}
-.photo .number {font-family: 'culture'; font-size: 270px; text-align: right; padding: 100px 160px 190px 0; letter-spacing: 15px;}
+.photo .number {font-family: 'Cormorant Infant', serif; font-size: 270px; text-align: right; padding: 100px 160px 190px 0; letter-spacing: 10px;font-weight: 300;}
 .photo .title {font-family: 'zephyr'; font-size: 85px; font-weight: inherit; margin-bottom: 250px; text-align: right; margin-right: 160px;}
 .photo .title .mo {display: none;}
 .photo .inner {width: 100%;}
@@ -326,6 +327,7 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
     .photo .inner .list li.c {width: 430px;}
 
     .contact .inner .line {top: -17%;}
+    .contact .txtBox .titBox .number {top: 50px;}
 }
 @media screen and (max-width:1280px) {
     .innerHeader .name {font-size: 32px;}

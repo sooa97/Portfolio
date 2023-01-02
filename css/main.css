@@ -1,6 +1,7 @@
 @charset "utf-8";
 @import url('https://fonts.googleapis.com/css2?family=Fahkwang:ital@0;1&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@300;400;500&display=swap');
 @font-face {
     font-family: 'zephyr';
     src:url(../font/zephyr-webfont.woff) format('woff'),
@@ -42,7 +43,7 @@ body {font-family: 'Fahkwang', sans-serif;}
 /* header */
 header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff; mix-blend-mode: difference;}
 .innerHeader {width: 100%; height: 100%; padding: 40px 34px 0; box-sizing: border-box; overflow: hidden;}
-.innerHeader .name {float: left; font-size: 40px; font-family: 'culture'; line-height: 0.9;}
+.innerHeader .name {float: left; font-size: 40px; font-family: 'Cormorant Infant', serif; line-height: 0.9;}
 .innerHeader nav {float: right; font-size: 16px;}
 .innerHeader nav .menu span:nth-of-type(2) {display: none;}
 .innerHeader nav .menu {width: 90px; height: 40px; border: 1px solid #fff; border-radius: 50px; cursor: pointer; line-height: 40px; text-align: center; position: relative; transition: transform 0.5s; overflow: hidden;}
@@ -199,7 +200,7 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 
 /* section.gallery */
 .gallery {width: 100%;}
-.gallery .number {font-family: 'culture'; font-size: 270px; text-align: right; margin-right: 160px; letter-spacing: 15px;}
+.gallery .number {font-family: 'Cormorant Infant', serif; font-size: 270px; text-align: right; margin-right: 160px; letter-spacing: 10px; font-weight: 300;}
 .gallery .inner {padding: 500px 0; width: 100%;}
 .gallery .inner .textWrap {width: 100%; text-align: center;}
 .gallery .txtBox {margin: 0 auto; position: relative; opacity: 0; transition: opacity 1.5s;  display: inline-block;}
@@ -232,7 +233,7 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 /* section.interest */
 .interest {width: 100%;}
 .interest .inner {width: 100%; position: relative; padding-top: 130vh;}
-.interest .inner .number {margin-left: 160px; font-family: 'culture'; font-size: 270px; letter-spacing: 15px;}
+.interest .inner .number {margin-left: 160px; font-family: 'Cormorant Infant', serif; font-size: 270px; letter-spacing: 10px; font-weight: 300;}
 .interest .inner .line {position: absolute; bottom: 12%; left: 0; width: 100%;}
 .interest .inner .innerBox {width: 78%; margin: 280px auto 0; display: flex; justify-content: space-between; position: relative; padding-bottom: 400px; flex-wrap: wrap;}
 .interest .inner .innerBox .left {margin: auto 0; opacity: 0; width: 50%;}
@@ -296,6 +297,8 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 
     .interest .inner .number {margin-left: 100px;}
     .interest .inner .innerBox .left .txtBox .tit {font-size: 3.5vw;}
+
+    .contact .txtBox .titBox .number {top: 50px;}
 }
 
 @media screen and (max-width:1280px) {
