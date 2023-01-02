@@ -298,8 +298,8 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 
     .main .inner .innerBox {margin-top: 52%;}
     .main .inner .innerBox .title {font-size: 12.42vw; top: -39%; margin-left: 10px;}
-    .main .inner .innerBox .responsive {position: static; width: 300px; display: flex; justify-content: space-between; padding: 20px 0 0;}
-    .main .inner .innerBox .responsive .button {float: none; margin: 0; width: 90px;}
+    .main .inner .innerBox .responsive {position: static; display: flex; justify-content: space-between; padding: 20px 0 0;}
+    .main .inner .innerBox .responsive .button {float: none; margin: 0; width: 75px;}
 
     .main .inner .company .txt {font-size: 13px;}
     .main .inner .company .tit {font-size: 16px; margin-bottom: 10px;}
@@ -326,9 +326,8 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 
 @media screen and (max-width:400px) {
     .main .inner .innerBox {margin-top: 57%;}
-    .main .inner .innerBox .responsive { width: 260px;}
-    .main .inner .innerBox .responsive .button {width: 80px;}
     .main .inner .innerBox .title {top: -37%;}
+    .main .inner .innerBox .responsive {width: 250px;}
     
     .style .inner .right .color {padding: 20px 0;}
     .style .inner .right .color ul li {width: 70px;}
