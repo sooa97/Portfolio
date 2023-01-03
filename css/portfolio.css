@@ -15,7 +15,7 @@
     src:url(../font/culture-webfont.woff2) format('woff2'),
         url(../font/culture-webfont.woff) format('woff'),
         url(../font/culture-webfont.ttf) format('truetype'),
-        url(../font/culture-webfont.svg) format('svg');
+        url(../font/culture-webfont.svg#culture) format('svg');
     font-weight: normal;
     font-style: normal;
 };
