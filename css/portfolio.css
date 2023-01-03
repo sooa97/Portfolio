@@ -12,7 +12,7 @@
 };
 @font-face {
     font-family: 'culture';
-    src:local('culture'),
+    src:url(../font/culture-webfont.woff2) format('woff2'),
         url(../font/culture-webfont.woff) format('woff'),
         url(../font/culture-webfont.ttf) format('truetype'),
         url(../font/culture-webfont.svg) format('svg');
@@ -571,6 +571,8 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 }
 
 @media screen and (max-width:380px) {
+    .innerHeader .name {font-size: 22px;}
+
     .process .inner .innerBox .txt {font-size: 15px;}
     .process .inner .innerBox .tit {font-size: 24px; margin-bottom: 0px;}
     
