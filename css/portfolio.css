@@ -191,13 +191,13 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 .font .innerBox {padding-bottom: 200px; position: relative; width: 100%;}
 .font .innerBox .tit {font-family: 'zephyr'; font-size: 85px; margin-bottom: 20px; color: #fff; text-align: center;}
 .font .innerBox ul {width: 830px; display: flex; justify-content: space-between; flex-wrap: wrap; margin: 0 auto;}
-.font .innerBox .box {width: 380px; background: #999999; text-align: center; color: #fff; margin-bottom: 70px; padding:  60px 20px; box-sizing: border-box; border-radius: 40px; transition: all 0.3s;}
+.font .innerBox .box {width: 380px; background: #999999; text-align: center; color: #fff; margin-bottom: 70px; padding:  60px 20px; box-sizing: border-box; border-radius: 50px; transition: all 0.3s;}
 .font .innerBox .box:hover {transform: scale(1.05); transition: all 0.3s;}
 .font .innerBox .box .fontName {margin-bottom: 34px; font-size: 39px;}
 .font .innerBox .box .txt {font-size: 16px; line-height: 2.5;}
 
 .font .innerBox .box:nth-child(1) {font-family: 'zephyr';}
-.font .innerBox .box:nth-child(2) {font-family: 'culture';}
+.font .innerBox .box:nth-child(2) {font-family: 'Cormorant Infant', serif;}
 .font .innerBox .box:nth-child(3) .fontName {margin-bottom: 31px;}
 .font .innerBox .box:nth-child(4) {font-family: 'Noto sans KR',sans-serif;}
 .font .innerBox .box:nth-child(4) .fontName {margin-bottom: 31px;}
@@ -339,7 +339,7 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
     .concept .innerBox .circleBox .circle3 {width: 160px; height: 160px; left: 200px; line-height: 160px;}
     .concept .innerBox .textBox .txt {font-size: 18px;}
 
-    .font .innerBox .box {width: 350px; margin-bottom: 45px;}
+    .font .innerBox .box {width: 350px; margin-bottom: 45px; border-radius: 30px;}
     .font .innerBox ul {width: 750px;}
     .font .innerBox .box .fontName {font-size: 32px;}
     .font .innerBox .box .txt {font-size: 15px;}
@@ -509,6 +509,7 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
     .process .inner .innerBox .textWrap {width: 70%; margin: 30px auto 0;}
     .process .inner .innerBox .img {width: 70%;}
     .process .inner .innerBox .tit {font-size: 27px; margin-bottom: 5px;}
+    .process .inner .innerBox .txt {font-size: 15px;}
     .process .inner .innerBox {margin-bottom: 80px;}
     .process .inner ul {margin-bottom: 150px;}
     .process .inner {padding-top: 200px;}
@@ -571,9 +572,11 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
     .information .inner .innerBox {margin-top: 0;}
     .information .star1 {width: 40px; right: 70px; top: -2px;}
     .information .star2 {right: 113px; top: -10px; width: 25px;}
+    .process .inner .innerBox .txt {font-size: 14px;}
 
     .concept .innerBox {padding-top: 150px;}
     .concept .innerBox .textBox .tit {font-size: 40px;}
+    .concept .innerBox .textBox .txt {font-size: 14px;}
 
     .font .innerBox .tit {font-size: 40px;}
     .font .innerBox .box {width: 250px;}

@@ -12,14 +12,6 @@
     font-weight: normal;
     font-style: normal;
 };
-@font-face {
-    font-family: 'culture';
-    src:url(../font/culture-webfont.woff) format('woff'),
-        url(../font/culture-webfont.ttf) format('truetype'),
-        url(../font/culture-webfont.svg) format('svg');
-    font-weight: normal;
-    font-style: normal;
-};
 
 /* reset */
 * {margin: 0;padding: 0;}
@@ -207,6 +199,7 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 
 @media screen and (max-width:1024px) {
     #mouse-cursor {display: none;}
+    .main .inner .innerBox .responsive .button:hover,.main .inner .innerBox .responsive .button:focus {color: #fff; background: #000;}
 }
 
 @media screen and (max-width:920px) {
@@ -295,6 +288,7 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 
     .menuOpen ul li {font-size: 12.5vw; margin-bottom: 10px;}
     .menuOpen::before {display: none;}
+    .menuOpen .close {top: 23px; right: 21px;}
 
     .main .inner .innerBox {margin-top: 52%;}
     .main .inner .innerBox .title {font-size: 12.42vw; top: -39%; margin-left: 10px;}
@@ -308,6 +302,7 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
     .style .inner .left .title {font-size: 7.8vw;}
     .style .inner .right .color {flex-wrap: wrap; padding: 25px 0;}
     .style .inner .right .color .tit {width: 100%; margin-bottom: 30px; font-size: 14px;}
+    .style .inner .right .color ul li .txt {font-size: 12px;}
     .style .inner .right .color ul {width: 100%;}
     .style .inner .right .font {flex-wrap: wrap;}
     .style .inner .right .font .tit {width: 100%; font-size: 14px;}
@@ -324,10 +319,13 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
     .fullScreen .top {width: 35px; bottom: 60px; right: 10%;}
 }
 
-@media screen and (max-width:400px) {
+@media screen and (max-width:380px) {
+    .innerHeader .name {font-size: 22px;}
+    
     .main .inner .innerBox {margin-top: 57%;}
     .main .inner .innerBox .title {top: -37%;}
-    .main .inner .innerBox .responsive {width: 250px;}
+    .main .inner .innerBox .responsive {width: 220px;}
+    .main .inner .innerBox .responsive .button {float: none; margin: 0; width: 65px; font-size: 10px; height: 30px; line-height: 30px;}
     
     .style .inner .right .color {padding: 20px 0;}
     .style .inner .right .color ul li {width: 70px;}
