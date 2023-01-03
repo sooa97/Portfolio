@@ -12,7 +12,8 @@
 };
 @font-face {
     font-family: 'culture';
-    src:url(../font/culture-webfont.woff) format('woff'),
+    src:local('culture'),
+        url(../font/culture-webfont.woff) format('woff'),
         url(../font/culture-webfont.ttf) format('truetype'),
         url(../font/culture-webfont.svg) format('svg');
     font-weight: normal;
@@ -507,6 +508,7 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 
     .menuOpen ul li {font-size: 12.5vw; margin-bottom: 10px;}
     .menuOpen::before {display: none;}
+    .menuOpen .close {top: 23px; right: 21px;}
 
     .visual .inner .titBox {margin-top: 15px;}
 
@@ -581,9 +583,10 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
     .concept .innerBox .textBox .tit {font-size: 40px;}
 
     .font .innerBox .tit {font-size: 40px;}
-    .font .innerBox .box {width: 270px;}
-    .font .innerBox ul {width: 270px;}
-    .font .innerBox .box .fontName {font-size: 26px;}
+    .font .innerBox .box {width: 250px;}
+    .font .innerBox ul {width: 250px;}
+    .font .innerBox .box .fontName {font-size: 25px;}
+    .font .innerBox .box .txt {font-size: 11px;}
 
     .contact .inner .star {left: 35%; top: 200px; width: 30px;}
     .contact .inner .line {top: 10%;}
