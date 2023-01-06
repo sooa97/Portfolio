@@ -1,19 +1,12 @@
 @charset "utf-8";
 @import url('https://fonts.googleapis.com/css2?family=Fahkwang:ital@0;1&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@300;400;500&display=swap');
 @font-face {
     font-family: 'zephyr';
     src:url(../font/zephyr-webfont.woff) format('woff'),
         url(../font/zephyr-webfont.ttf) format('truetype'),
         url(../font/zephyr-webfont.svg) format('svg');
-    font-weight: normal;
-    font-style: normal;
-};
-@font-face {
-    font-family: 'culture';
-    src:url(../font/culture-webfont.woff) format('woff'),
-        url(../font/culture-webfont.ttf) format('truetype'),
-        url(../font/culture-webfont.svg) format('svg');
     font-weight: normal;
     font-style: normal;
 };
@@ -35,15 +28,16 @@ body {font-family: 'Fahkwang', sans-serif;}
 .wrap {width: 100%; margin: 0 auto; overflow: hidden; background: #dddddd;}
 
 /* header */
-header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #000;}
+header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff; mix-blend-mode: difference;}
 .innerHeader {width: 100%; height: 100%; padding: 40px 34px 0; box-sizing: border-box; overflow: hidden;}
-.innerHeader .name {float: left; font-size: 40px; font-family: 'culture'; line-height: 0.9;}
+.innerHeader .name {float: left; font-size: 40px; font-family: 'Cormorant Infant', serif; line-height: 0.9;}
 .innerHeader nav {float: right; font-size: 16px;}
-.innerHeader nav .menu {width: 90px; height: 40px; border: 1px solid #000; border-radius: 50px; cursor: pointer; line-height: 40px; text-align: center; position: relative; transition: transform 0.5s; overflow: hidden;}
+.innerHeader nav .menu span:nth-of-type(2) {display: none;}
+.innerHeader nav .menu {width: 90px; height: 40px; border: 1px solid #fff; border-radius: 50px; cursor: pointer; line-height: 40px; text-align: center; position: relative; transition: transform 0.5s; overflow: hidden;}
 .innerHeader nav .menu:before {content: attr(data-after); display: inline-block; transform: translateY(100%); position: absolute; left: 20px; top: 0; transition: inherit;}
-.innerHeader nav .menu span {display: inline-block; transform: translateY(0%); transition: inherit;}
+.innerHeader nav .menu .hide {display: inline-block; transform: translateY(0%); transition: inherit;}
 .innerHeader nav .menu:hover:before {transform: translateY(0%);}
-.innerHeader nav .menu:hover span {transform: translateY(-100%);}
+.innerHeader nav .menu:hover .hide {transform: translateY(-100%);}
 
 /* menuOpen */
 .menuOpen {width: 100%; height: 100vh; background: #f2f2f2; position: fixed; z-index: 1000; display: none;}
@@ -76,8 +70,8 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #000;
 /* section.main */
 .main {width: 100%;}
 .main .inner {width: 85%; margin: 0 auto 210px;}
-.main .inner .innerBox {width: 100%; margin-top: 200px; position: relative;}
-.main .inner .innerBox .title {font-size: 200px; font-family: 'zephyr'; font-weight: inherit; line-height: 1; margin-bottom: 80px; margin-left: 50px;}
+.main .inner .innerBox {width: 100%; margin-top: 12%; position: relative;}
+.main .inner .innerBox .title {font-size: 10.42vw; font-family: 'zephyr'; font-weight: inherit; line-height: 1; margin-bottom: 5%; margin-left: 2%;}
 .main .inner .innerBox .img {width: 100%;}
 .main .inner .innerBox .img img {width: 100%;}
 .main .inner .innerBox .responsive {width: 340px; position: absolute; bottom: 0; right: 50px; overflow: hidden;}
@@ -93,12 +87,14 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #000;
 .style {width: 100%;}
 .style .inner {width: 85%; margin: 0 auto; display: flex; justify-content: space-between;}
 .style .inner .left {width: 35%;}
-.style .inner .left .title {font-family: 'zephyr'; font-weight: inherit; font-size: 85px;}
+.style .inner .left .title {font-family: 'zephyr'; font-weight: inherit; font-size: 4.43vw;}/*추가*/
 .style .inner .right {width: 50%; margin-bottom: 250px;}
 .style .inner .right .color {display: flex; justify-content: space-between; padding: 50px 0; border-top: 1px solid #707070; border-bottom: 1px solid #707070; margin-top: 10px;}
 .style .inner .right .color .tit {width: 30%; font-size: 25px; color: #707070;}
 .style .inner .right .color ul {width: 65%;}
-.style .inner .right .color ul li {float: left; text-align: center; margin-right: 40px;}
+.style .inner .right .color ul li {float: left; text-align: center; margin-right: 40px; width: 103px;}/*추가*/
+.style .inner .right .color ul li:last-child {margin-right: 0px;}/*추가*/
+.style .inner .right .color ul li img {width: 100%;}/*추가*/
 .style .inner .right .color ul li .txt {margin-top: 15px;}
 .style .inner .right .font {padding-top: 50px; display: flex; justify-content: space-between;}
 .style .inner .right .font .tit {width: 30%; font-size: 25px; color: #707070;}
@@ -111,6 +107,10 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #000;
 .mockup {width: 100%;}
 .mockup .inner {width: 100%; margin-bottom: 200px; background: url(../img/dopda-mockup.png) no-repeat center/cover; padding: 575px 0; background-attachment: fixed;}
 
+/* section.hidden */
+.hidden {display: none; width: 100%;}
+.hidden .img {width: 100%; margin-bottom: 120px;}
+.hidden .img img {width: 100%;}
 
 /* section.mockupVideo */
 .mockupVideo {width: 100%;}
@@ -121,5 +121,205 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #000;
 .fullScreen {width: 100%; background: #717171; padding-top: 200px; position: relative;}
 .fullScreen .img {padding-bottom: 100px; width: 53%; margin: 0 auto;}
 .fullScreen .img img {width: 100%;}
-.fullScreen .top {position: absolute; bottom: 100px; right: 180px;}
+.fullScreen .top {position: absolute; bottom: 100px; right: 15%; width: 64px;}
 .fullScreen .top a {display: block; width: 100%; height: 100%;}
+.fullScreen .top img {width: 100%;}
+
+/* responsive */
+@media screen and (max-width:1600px) {
+    .style .inner .right {width: 55%;}
+    .style .inner .right .color ul li {width: 95px;}
+}
+
+@media screen and (max-width:1420px) {
+    .main .inner .innerBox {margin-top: 15%;}
+    .style .inner .right .color .tit {font-size: 23px; width: 20%;}
+    .style .inner .right .color ul {width: 70%;}
+    .style .inner .right .font .tit {font-size: 23px; width: 20%;}
+    .style .inner .right .font ul {width: 70%;}
+    .style .inner .right {width: 58%;}
+    .style .inner .right .font ul li .fontName {font-size: 36px;}
+}
+
+
+@media screen and (max-width:1280px) {
+    .innerHeader .name {font-size: 32px;}
+
+    .main .inner .innerBox .responsive {font-size: 14px; right: 0px;}
+    .main .inner .innerBox .responsive .button {width: 90px; height: 38px; margin: 20px 20px 20px 0; line-height: 38px;}
+    .main .inner .company .txt {font-size: 16px;}
+    .main .inner .company {width: 838px;}
+
+    .style .inner .right .color ul li {width: 90px; margin-right: 30px;}
+    .style .inner .right .color .tit {font-size: 20px; width: 20%;}
+    .style .inner .right .font .tit {font-size: 20px; width: 20%;}
+    .style .inner .right .font ul li .sample {font-size: 16px;}
+
+    .mockupVideo .img {width: 70%;}
+
+    .fullScreen {padding-top: 170px;}
+    .fullScreen .top {width: 55px;}
+}
+
+@media screen and (max-width:1080px) {
+    .innerHeader {padding: 30px 25px 0;}
+    .innerHeader nav .menu {border: none; width: auto; height: auto;}
+    .innerHeader nav .menu .hide {display: none;}
+    .innerHeader nav .menu span:nth-of-type(2) {display: block; font-size: 45px; color: #fff; text-align: right;}
+    .innerHeader nav .menu:before {display: none;}
+    .menuOpen .close {top: 39px; right: 33px;}
+
+    .main .inner {margin-bottom: 170px;}
+    .main .inner .innerBox {margin-top: 17%;}
+    .main .inner .company {width: 100%; margin-top: 50px;}
+    .main .inner .company .tit {font-size: 23px;}
+    .main .inner .company .txt {width: 68%;}
+    .style .inner .right .color ul li {width: 80px;}
+    .style .inner .right .color ul li .txt {font-size: 14px;}
+    .style .inner .right .font ul li .sample {line-height: 1.5;}
+    .style .inner .right .font ul li .fontName {font-size: 32px;}
+    .style .inner .left .title {font-size: 4.8vw;}
+    .style .inner .right .color .tit {font-size: 18px;}
+    .style .inner .right {width: 57%; margin-bottom: 200px;}
+
+    .mockup {display: none;}
+    .hidden {display: block;}
+
+    .mockupVideo .img {margin-bottom: 70px;}
+
+    .fullScreen .top {width: 50px;}
+}
+
+@media screen and (max-width:1024px) {
+    .main .inner .innerBox .responsive .button:hover,.main .inner .innerBox .responsive .button:focus {color: #000; background: #fff;}
+}
+
+@media screen and (max-width:920px) {
+    .menuOpen ul li {font-size: 85px; margin-bottom: 30px;}
+    .menuOpen::before {width: 600px; height: 600px;}
+
+    .main .inner .innerBox {margin-top: 22%;}
+    .main .inner .innerBox .responsive {font-size: 14px; right: 0px; width: 320px;}
+    .main .inner .innerBox .responsive .button {width: 85px; height: 35px; line-height: 35px;}
+
+    .main .inner .company {flex-wrap: wrap;}
+    .main .inner .company .txt {font-size: 15px; width: 100%;}
+    .main .inner .company .tit {font-size: 21px; width: 100%; margin-bottom: 15px;}
+    .main .inner .company .tit br {display: none;}
+
+    .style .inner {flex-wrap: wrap;}
+    .style .inner .left {width: 100%;}
+    .style .inner .right {width: 100%;}
+    .style .inner .right .color ul {width: 50%;}
+    .style .inner .right .font ul {width: 50%;}
+    .style .inner .left .title {font-size: 6vw; margin-bottom: 10px;}
+
+    .mockupVideo .img {width: 75%;}
+
+    .fullScreen {padding-top: 140px;}
+    .fullScreen .top {right: 13%;}
+}
+
+@media screen and (max-width:768px) {
+    .menuOpen ul li {font-size: 75px; margin-bottom: 25px;}
+    .menuOpen::before {width: 500px; height: 500px;}
+
+    .main .inner {margin-bottom: 140px;}
+    .main .inner .innerBox {margin-top: 28%;}
+    .main .inner .innerBox .responsive {font-size: 12px; width: 257px;}
+    .main .inner .innerBox .responsive .button {width: 75px; height: 32px; line-height: 32px; margin: 0 10px 10px 0;}
+    .main .inner .company .txt {font-size: 14px;}
+    .main .inner .company .tit {font-size: 18px; margin-bottom: 12px;}
+    .main .inner .company {margin-top: 30px;}
+
+    .style .inner .right .font ul li .fontName {font-size: 30px; margin-bottom: 20px;}
+    .style .inner .right .font ul li .sample {font-size: 15px;}
+    .style .inner .right .font ul li {margin-bottom: 45px;}
+    .style .inner .right .color {padding: 40px 0;}
+    .style .inner .right .color ul {width: 60%;}
+    .style .inner .right .font {padding-top: 40px;}
+    .style .inner .right .font ul {width: 60%;}
+    .style .inner .right .color ul li {margin-right: 25px;}
+
+    .fullScreen .top {width: 45px;}
+}
+
+@media screen and (max-width:600px) {
+    .innerHeader .name {font-size: 28px;}
+
+    .menuOpen ul li {font-size: 60px; margin-bottom: 20px;}
+    .menuOpen::before {width: 400px; height: 400px;}
+    
+    .main .inner{margin-bottom: 120px;}
+
+    .style .inner .left .title {font-size: 6.5vw; margin-bottom: 0;}
+    .style .inner .right .color .tit {font-size: 16px; width: 15%;}
+    .style .inner .right .color ul {width: 67%;}
+    .style .inner .right .color ul li {width: 75px; margin-right: 18px;}
+    .style .inner .right .color ul li .txt {font-size: 13px;}
+    .style .inner .right .font .tit {font-size: 16px;}
+    .style .inner .right .font ul {width: 67%;}
+    .style .inner .right .font ul li .fontName {font-size: 26px; margin-bottom: 16px;}
+    .style .inner .right .font ul li .sample {font-size: 14px;}
+
+    .hidden .img {margin-bottom: 100px;}
+    .mockupVideo .img {margin-bottom: 50px;}
+
+    .fullScreen {padding-top: 100px;}
+    .fullScreen .top {width: 40px;}
+}
+
+@media screen and (max-width:480px) {
+    .innerHeader .name {font-size: 25px;}
+    .innerHeader nav .menu span:nth-of-type(2) {font-size: 40px;}
+    .innerHeader {padding: 20px 15px 0;}
+    .innerHeader nav .menu {margin-top: -5px;}
+
+    .menuOpen ul li {font-size: 12.5vw; margin-bottom: 10px;}
+    .menuOpen::before {display: none;}
+    .menuOpen .close {top: 23px; right: 21px;}
+
+    .main .inner .innerBox {margin-top: 34%;}
+    .main .inner .innerBox .responsive {position: static; display: flex; justify-content: space-between; padding: 20px 0 0;}
+    .main .inner .innerBox .responsive .button {float: none; margin: 0; width: 75px; color: #fff; background: #000;}
+    .main .inner .innerBox .responsive .button:hover,.main .inner .innerBox .responsive .button:focus {color: #fff; background: #000;}
+    .main .inner .company .txt {font-size: 13px;}
+    .main .inner .company .tit {font-size: 16px; margin-bottom: 10px;}
+    .main .inner .company {margin-top: 70px;}
+
+    .style .inner .left .title {font-size: 7.8vw;}
+    .style .inner .right .color {flex-wrap: wrap; padding: 25px 0;}
+    .style .inner .right .color .tit {width: 100%; margin-bottom: 30px; font-size: 14px;}
+    .style .inner .right .color ul li .txt {font-size: 12px;}
+    .style .inner .right .color ul {width: 100%;}
+    .style .inner .right .font {flex-wrap: wrap;}
+    .style .inner .right .font .tit {width: 100%; font-size: 14px;}
+    .style .inner .right .font ul {width: 100%;}
+    .style .inner .right .font {padding-top: 25px;}
+    .style .inner .right .font .tit {margin-bottom: 30px;}
+    .style .inner .right {margin-bottom: 150px;}
+
+    .hidden .img {margin-bottom: 70px;}
+    .mockupVideo .img {width: 80%; margin-bottom: 30px;}
+
+    .fullScreen {padding-top: 70px;}
+    .fullScreen .img {padding-bottom: 60px;}
+    .fullScreen .top {width: 35px; bottom: 60px; right: 10%;}
+}
+
+@media screen and (max-width:380px) {
+    .innerHeader .name {font-size: 22px;}
+    
+    .main .inner .innerBox {margin-top: 39%;}
+    .main .inner .innerBox .responsive {width: 220px;}
+    .main .inner .innerBox .responsive .button {float: none; margin: 0; width: 65px; font-size: 10px; height: 30px; line-height: 30px;}
+    
+    .style .inner .right .color {padding: 20px 0;}
+    .style .inner .right .color ul li {width: 70px;}
+    .style .inner .right .font ul li .fontName {font-size: 24px;}
+    .style .inner .right .font {padding-top: 20px;}
+
+    .fullScreen {padding-top: 60px;}
+    .fullScreen .img {padding-bottom: 40px;}
+    .fullScreen .top {bottom: 40px;}
+}

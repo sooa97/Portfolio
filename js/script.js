@@ -1,3 +1,8 @@
+//스크립트 튕김 방지
+$(document).on('click', 'a[href="#"]', function(e){
+    e.preventDefault();
+});
+
 //menuOpen
 $(function(){
     $(".menu").on("click",function(){

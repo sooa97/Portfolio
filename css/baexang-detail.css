@@ -74,7 +74,7 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 .main {width: 100%;}
 .main .inner {width: 85%; margin: 0 auto 210px;}
 .main .inner .innerBox {width: 100%; margin-top: 30%; position: relative;}
-.main .inner .innerBox .title {font-size: 10.42vw; font-family: 'zephyr'; font-weight: inherit; line-height: 1; position: absolute; top: -40%; margin-left: 50px;}
+.main .inner .innerBox .title {font-size: 10.42vw; font-family: 'zephyr'; font-weight: inherit; line-height: 1; position: absolute; top: -40%; margin-left: 3%;}
 .main .inner .innerBox .img {width: 100%;}
 .main .inner .innerBox .img img {width: 100%;}
 .main .inner .innerBox .responsive {width: 340px; position: absolute; bottom: 0; right: 50px; overflow: hidden; font-size: 16px;}
@@ -90,14 +90,14 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 .style {width: 100%;}
 .style .inner {width: 85%; margin: 0 auto; display: flex; justify-content: space-between;}
 .style .inner .left {width: 35%;}
-.style .inner .left .title {font-family: 'zephyr'; font-weight: inherit; font-size: 4.43vw;}
+.style .inner .left .title {font-family: 'zephyr'; font-weight: inherit; font-size: 4.43vw;}/*추가*/
 .style .inner .right {width: 50%; margin-bottom: 250px;}
 .style .inner .right .color {display: flex; justify-content: space-between; padding: 50px 0; border-top: 1px solid #707070; border-bottom: 1px solid #707070; margin-top: 10px;}
 .style .inner .right .color .tit {width: 30%; font-size: 25px; color: #707070;}
 .style .inner .right .color ul {width: 65%;}
-.style .inner .right .color ul li {float: left; text-align: center; margin-right: 40px; width: 103px;}
-.style .inner .right .color ul li:last-child {margin-right: 0px;}
-.style .inner .right .color ul li img {width: 100%;}
+.style .inner .right .color ul li {float: left; text-align: center; margin-right: 40px; width: 103px;}/*추가*/
+.style .inner .right .color ul li:last-child {margin-right: 0px;}/*추가*/
+.style .inner .right .color ul li img {width: 100%;}/*추가*/
 .style .inner .right .color ul li .txt {margin-top: 15px;}
 .style .inner .right .font {padding-top: 50px; display: flex; justify-content: space-between;}
 .style .inner .right .font .tit {width: 30%; font-size: 25px; color: #707070;}
@@ -139,6 +139,7 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 
 @media screen and (max-width:1420px) {
     .main .inner .innerBox {margin-top: 33%;}
+
     .style .inner .right .color .tit {font-size: 23px; width: 20%;}
     .style .inner .right .color ul {width: 70%;}
     .style .inner .right .font .tit {font-size: 23px; width: 20%;}
@@ -177,7 +178,6 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 
     .main .inner {margin-bottom: 170px;}
     .main .inner .innerBox {margin-top: 35%;}
-    .main .inner .innerBox .title {margin-left: 30px;}
     .main .inner .company {width: 100%; margin-top: 50px;}
     .main .inner .company .tit {font-size: 23px;}
     .main .inner .company .txt {width: 68%;}
@@ -198,7 +198,6 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
 }
 
 @media screen and (max-width:1024px) {
-    #mouse-cursor {display: none;}
     .main .inner .innerBox .responsive .button:hover,.main .inner .innerBox .responsive .button:focus {color: #fff; background: #000;}
 }
 
@@ -234,8 +233,6 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
     .menuOpen::before {width: 500px; height: 500px;}
 
     .main .inner {margin-bottom: 140px;}
-    .main .inner .innerBox {margin-top: 43%;}
-    .main .inner .innerBox .title {margin-left: 20px;}
     .main .inner .innerBox {margin-top: 46%;}
     .main .inner .innerBox .responsive {font-size: 12px; width: 257px;}
     .main .inner .innerBox .responsive .button {width: 75px; height: 32px; line-height: 32px; margin: 0 10px 10px 0;}
@@ -277,7 +274,7 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
     .mockupVideo .img {margin-bottom: 50px;}
 
     .fullScreen {padding-top: 100px;}
-    .fullScreen .top {width: 40px;}
+    .fullScreen .top {width: 40px; right: 11%;}
 }
 
 @media screen and (max-width:480px) {
@@ -291,7 +288,7 @@ header {width: 100%; height: 120px; position: fixed; z-index: 1000; color: #fff;
     .menuOpen .close {top: 23px; right: 21px;}
 
     .main .inner .innerBox {margin-top: 52%;}
-    .main .inner .innerBox .title {font-size: 12.42vw; top: -39%; margin-left: 10px;}
+    .main .inner .innerBox .title {font-size: 12.42vw; top: -39%;}
     .main .inner .innerBox .responsive {position: static; display: flex; justify-content: space-between; padding: 20px 0 0;}
     .main .inner .innerBox .responsive .button {float: none; margin: 0; width: 75px;}
 
