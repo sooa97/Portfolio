@@ -7,9 +7,8 @@
     <title>Clone Coding-Crew A La Mode</title>
     <!-- css -->
     <link rel="stylesheet" href="css/crew-detail.css">
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
     <!-- js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/ScrollTrigger.min.js"></script>
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/script.js"></script>
 </head>
@@ -17,9 +16,12 @@
     <div class="wrap">
         <header class="#top">
             <div class="innerHeader">
-                <div class="name">SOOA<br>PARK</div>
+                <div class="name"><a href="index.html">SOOA<br>PARK</a></div>
                 <nav>
-                    <div class="menu" data-after="MENU"><span>MENU</span></div>
+                    <div class="menu" data-after="MENU">
+                        <span class="hide">MENU</span>
+                        <span class="lnr lnr-menu"></span>
+                    </div>
                 </nav>
             </div>
         </header>
@@ -38,9 +40,9 @@
                     <h3 class="title">CREW A <br>LA MODE</h3>
                     <p class="img"><img src="img/crew-a-la-mode.png" alt=""></p>
                     <div class="responsive">
-                        <p class="button"><a href="" onclick="window.open('responsive.html', '_blank','width=1420 height=1080')">PC</a></p>
-                        <p class="button"><a href="" onclick="window.open('responsive.html', '_blank','width=768 height=1080')">TABLET</a></p>
-                        <p class="button"><a href="" onclick="window.open('responsive.html', '_blank','width=480 height=1080')">MOBILE</a></p>
+                        <p class="button"><a href="#" onclick="window.open('https://sooa97.github.io/crew-a-la-mode/', '_blank','width=1420 height=1080')">PC</a></p>
+                        <p class="button"><a href="#" onclick="window.open('https://sooa97.github.io/crew-a-la-mode/', '_blank','width=768 height=1080')">TABLET</a></p>
+                        <p class="button"><a href="#" onclick="window.open('https://sooa97.github.io/crew-a-la-mode/', '_blank','width=480 height=1080')">MOBILE</a></p>
                     </div>
                 </div>
                 <div class="company">
@@ -101,6 +103,7 @@
         <section class="mockup">
             <div class="inner"></div>
         </section>
+        <section class="hidden"><p class="img"><img src="img/crew-mockup.png" alt=""></p></section>
         <section class="mockupVideo">
             <p class="img"><img src="img/crew-imac.png" alt=""></p>
         </section>
@@ -108,21 +111,7 @@
             <p class="img"><img src="img/crew-fullpage.png" alt=""></p>
             <p class="top">
                 <a href="#top">
-                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
-                    <g id="그룹_54" data-name="그룹 54" transform="translate(-1321 -9350)">
-                        <g id="그룹_53" data-name="그룹 53" transform="translate(-335 -109.436)">
-                            <circle id="타원_19" data-name="타원 19" cx="32" cy="32" r="32" transform="translate(1656 9459.436)" />
-                        </g>
-                        <g id="그룹_44" data-name="그룹 44" transform="translate(1340.076 9369.637)">
-                            <line id="선_7" data-name="선 7" y2="20.979" transform="translate(12.737 3.746)" fill="none" stroke="#fff"
-                                stroke-linecap="round" stroke-width="5" />
-                            <line id="선_8" data-name="선 8" y1="12.737" x2="12.737" fill="none" stroke="#fff" stroke-linecap="round"
-                                stroke-width="5" />
-                            <line id="선_9" data-name="선 9" x1="12.737" y1="12.737" transform="translate(13.112 0.375)" fill="none"
-                                stroke="#fff" stroke-linecap="round" stroke-width="5" />
-                        </g>
-                    </g>
-                </svg>
+                    <img src="img/top.png" alt="">
                 </a>
             </p>
         </section>
